@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.GSETerminal" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">#059669</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+        <item name="colorSecondary">#d97706</item>
+        <item name="android:statusBarColor">#1e293b</item>
+        <item name="android:navigationBarColor">#f8fafc</item>
+        <item name="android:windowBackground">#f8fafc</item>
+    </style>
+    <style name="Theme.GSETerminal.NoActionBar" parent="Theme.GSETerminal">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.GSETerminal.Splash" parent="Theme.Material3.Light.NoActionBar">
+        <item name="android:statusBarColor">#0f172a</item>
+        <item name="android:navigationBarColor">#0f172a</item>
+        <item name="android:windowBackground">#0f172a</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+</resources>

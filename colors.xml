@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="gse_green">#059669</color>
+    <color name="gse_amber">#d97706</color>
+    <color name="gse_blue">#2563eb</color>
+    <color name="bg_main">#f8fafc</color>
+    <color name="splash_bg">#0f172a</color>
+</resources>

@@ -1,0 +1,2112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="GSE Terminal">
+<meta name="theme-color" content="#1e293b">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>GSE Terminal — Ghana Stock Exchange</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f8fafc;--white:#fff;--border:#e2e8f0;--border2:#cbd5e1;
+  --text:#0f172a;--text2:#1e293b;--muted:#475569;--dim:#64748b;
+  --amber:#d97706;--amber-bg:#fffbeb;--amber-light:#fef3c7;--amber-dark:#92400e;
+  --green:#059669;--green-bg:#d1fae5;--green-border:#6ee7b7;--green-dark:#065f46;
+  --red:#dc2626;--red-bg:#fee2e2;--red-border:#fca5a5;--red-dark:#991b1b;
+  --blue:#2563eb;--blue-bg:#dbeafe;--tape:#1e293b;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter','Segoe UI',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+
+/* ── TOOLTIP SYSTEM ── */
+.info-btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:14px;height:14px;border-radius:50%;border:1.5px solid var(--border2);
+  background:var(--bg);color:var(--dim);font-size:8px;cursor:pointer;
+  flex-shrink:0;margin-left:4px;transition:all .15s;font-family:'Inter',sans-serif;
+  font-weight:700;line-height:1;
+}
+.info-btn:hover{background:var(--amber);border-color:var(--amber);color:#fff}
+.sc{position:relative}
+.sl{display:flex;align-items:center}
+
+/* Tooltip popup */
+.tooltip-popup{
+  display:none;position:fixed;z-index:9999;
+  max-width:260px;background:#0f172a;color:#f1f5f9;
+  border-radius:10px;padding:12px 14px;font-size:11.5px;
+  line-height:1.6;box-shadow:0 8px 32px rgba(0,0,0,.35);
+  border:1px solid #334155;pointer-events:none;
+  font-family:'Inter',sans-serif;font-weight:400;
+}
+.tooltip-popup.show{display:block}
+.tooltip-popup strong{color:#fbbf24;font-weight:700}
+.tooltip-popup .tt-label{font-size:10px;color:#94a3b8;letter-spacing:.8px;text-transform:uppercase;margin-bottom:5px;font-weight:600}
+
+/* mono values use JetBrains */
+.sv,.tpx,.tsym,.t1,.t2,.t3,.mkt-countdown,.mkt-time{font-family:'JetBrains Mono','Courier New',monospace}
+
+
+/* ── TOPBAR ── */
+.topbar{
+  position:sticky;top:0;z-index:200;
+  background:var(--white);border-bottom:2px solid var(--border);
+  display:flex;align-items:center;height:52px;padding:0 16px;gap:8px;
+  box-shadow:0 1px 6px rgba(0,0,0,.07);
+}
+.brand{
+  font-size:13px;font-weight:800;color:var(--green);letter-spacing:1.5px;
+  white-space:nowrap;display:flex;align-items:center;gap:6px;
+  cursor:pointer;user-select:none;font-family:'Inter',sans-serif;
+}
+.ham{display:none;background:none;border:none;cursor:pointer;padding:4px;color:var(--amber-dark);font-size:20px;flex-shrink:0}
+.navs{display:flex;gap:2px;flex:1;overflow-x:auto;scrollbar-width:none}
+.navs::-webkit-scrollbar{display:none}
+.nb{
+  padding:6px 11px;font-size:11px;font-family:'Inter',sans-serif;
+  border:none;border-bottom:3px solid transparent;
+  background:transparent;color:var(--amber-dark);cursor:pointer;
+  border-radius:6px 6px 0 0;display:flex;align-items:center;gap:5px;
+  font-weight:700;white-space:nowrap;transition:background .15s;flex-shrink:0;letter-spacing:.2px;
+}
+.nb:hover:not(.on){background:var(--amber-light)}
+.nb.on{background:var(--amber-light);color:#78350f;border-bottom-color:var(--amber)}
+.cbtn{
+  font-size:10px;font-family:'Inter',sans-serif;padding:5px 11px;
+  border:1.5px solid var(--amber);border-radius:6px;
+  background:var(--amber-bg);color:var(--amber-dark);cursor:pointer;font-weight:700;white-space:nowrap;
+}
+.cbtn:hover{background:var(--amber-light)}
+
+/* ── MOBILE DRAWER ── */
+.drawer-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:300}
+.drawer{
+  position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--white);z-index:400;
+  transform:translateX(-100%);transition:transform .28s ease;
+  box-shadow:4px 0 20px rgba(0,0,0,.12);display:flex;flex-direction:column;
+}
+.drawer.open{transform:translateX(0)}
+.drawer-overlay.open{display:block}
+.drawer-hdr{padding:18px 16px 14px;border-bottom:2px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.drawer-brand{font-size:14px;font-weight:700;color:var(--green);letter-spacing:1.5px;display:flex;align-items:center;gap:7px}
+.drawer-close{background:none;border:none;cursor:pointer;font-size:18px;color:var(--dim)}
+.drawer-items{flex:1;overflow-y:auto;padding:8px 0}
+.ditem{
+  display:flex;align-items:center;gap:12px;padding:13px 20px;font-size:13px;font-weight:700;
+  color:var(--amber-dark);cursor:pointer;border:none;background:transparent;
+  font-family:inherit;width:100%;text-align:left;transition:background .12s;border-left:3px solid transparent;
+}
+.ditem:hover{background:var(--amber-light)}
+.ditem.on{background:var(--amber-light);color:#78350f;border-left-color:var(--amber)}
+.ditem i{width:18px;text-align:center;font-size:14px}
+.drawer-cur{padding:14px 16px;border-top:1.5px solid var(--border)}
+.drawer-cur button{
+  width:100%;padding:10px;font-family:inherit;font-size:12px;font-weight:700;
+  border:1.5px solid var(--amber);border-radius:8px;background:var(--amber-bg);color:var(--amber-dark);cursor:pointer;
+}
+
+/* ── TICKER TAPE ── */
+.tape-wrap{
+  background:var(--tape);height:32px;overflow:hidden;display:flex;align-items:center;
+  border-bottom:1px solid #334155;position:sticky;top:52px;z-index:190;
+}
+.tape-inner{display:inline-flex;animation:scrolltape 120s linear infinite;white-space:nowrap}
+.tape-inner:hover{animation-play-state:paused}
+@keyframes scrolltape{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.titem{display:inline-flex;align-items:center;gap:6px;padding:0 16px;border-right:1px solid #334155;height:32px;font-size:10px;cursor:pointer;transition:background .15s}
+.titem:hover{background:rgba(255,255,255,.07)}
+.tsym{color:#fbbf24;font-weight:700}.tpx{color:#f1f5f9;font-weight:600}
+.tup{color:#10b981;font-weight:700}.tdn{color:#ef4444;font-weight:700}.tfl{color:#64748b}
+
+/* ── MAIN ── */
+.main{padding:20px;max-width:1200px;margin:0 auto}
+.pg{display:none}.pg.on{display:block}
+.ptit{font-size:18px;font-weight:800;color:var(--text);display:flex;align-items:center;gap:8px;margin-bottom:4px;font-family:'Inter',sans-serif;letter-spacing:-.3px}
+.psub{font-size:12px;color:var(--muted);margin-bottom:16px;font-family:'Inter',sans-serif}
+
+/* ── STAT GRID ── */
+.sg{display:grid;gap:10px;margin-bottom:14px}
+.s4{grid-template-columns:repeat(4,1fr)}.s3{grid-template-columns:repeat(3,1fr)}.s2{grid-template-columns:repeat(2,1fr)}
+.sc{background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:14px 16px;transition:border-color .15s,box-shadow .15s;position:relative}
+.sc:hover{border-color:var(--border2);box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.sl{font-size:9px;color:var(--dim);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;font-family:'Inter',sans-serif;font-weight:600}
+.sv{font-size:22px;font-weight:700;color:var(--text)}
+.sv.g{color:var(--green)}.sv.r{color:var(--red)}.sv.b{color:var(--blue)}.sv.y{color:var(--amber)}
+
+/* ── CHIPS ── */
+.chips{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}
+.chip{font-size:10px;padding:4px 10px;border-radius:5px;display:inline-flex;align-items:center;gap:4px;font-weight:700;font-family:'Inter',sans-serif;letter-spacing:.2px}
+.cg{background:var(--green-bg);color:var(--green-dark);border:1px solid var(--green-border)}
+.cr{background:var(--red-bg);color:var(--red-dark);border:1px solid var(--red-border)}
+.cy{background:var(--amber-light);color:var(--amber-dark);border:1px solid #fcd34d}
+.cb{background:var(--blue-bg);color:#1e40af;border:1px solid #93c5fd}
+.cd{background:#f1f5f9;color:var(--muted);border:1px solid var(--border2)}
+.cv{background:#ede9fe;color:#5b21b6;border:1px solid #c4b5fd}
+
+/* ── PANEL / TABLE ── */
+.panel{background:var(--white);border:1.5px solid var(--border);border-radius:10px;overflow:hidden}
+.tbl-wrap{overflow-x:auto}
+.search-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px}
+.sin{background:var(--white);border:1.5px solid var(--border2);border-radius:6px;color:var(--text);font-family:inherit;font-size:11px;padding:6px 10px;width:180px;outline:none}
+.sin:focus{border-color:var(--amber)}
+.liv{font-size:10px;color:var(--green);display:flex;align-items:center;gap:6px;font-weight:600}
+.ld{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pu 2s ease infinite;flex-shrink:0}
+@keyframes pu{0%,100%{opacity:1}50%{opacity:.3}}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{padding:10px 12px;text-align:left;color:var(--muted);font-size:9px;letter-spacing:1px;text-transform:uppercase;border-bottom:1.5px solid var(--border);font-weight:700;cursor:pointer;background:var(--bg);white-space:nowrap}
+th:hover{color:var(--amber-dark)}
+td{padding:9px 12px;border-bottom:1px solid #f1f5f9;color:var(--text2);white-space:nowrap}
+tr:last-child td{border-bottom:none}
+tr.rh:hover td{background:var(--amber-light);cursor:pointer}
+.t1{color:var(--text);font-weight:700}.t2{color:var(--text2);font-weight:600}.t3{color:var(--dim)}
+
+/* ── PROFILE ── */
+.back-btn{font-family:inherit;font-size:12px;color:var(--amber-dark);background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:5px;margin-bottom:14px;padding:0;font-weight:700}
+.back-btn:hover{color:#78350f}
+.hero{background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:18px 20px;margin-bottom:12px;display:flex;flex-direction:column;gap:12px}
+.mg{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:12px}
+.chart-box{background:var(--white);border:1.5px solid var(--border);border-radius:10px;padding:14px;margin-bottom:12px}
+.ftbl{width:100%;border-collapse:collapse}
+.ftbl td{padding:8px 12px;border-bottom:1px solid #f1f5f9;font-size:12px;white-space:normal}
+.ftbl td:first-child{color:var(--dim);font-size:9px;text-transform:uppercase;letter-spacing:.5px;font-weight:700;width:160px;white-space:nowrap}
+.ftbl tr:last-child td{border-bottom:none}
+.chat-box{background:var(--white);border:1.5px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:12px}
+.chat-hdr{padding:10px 14px;border-bottom:1.5px solid var(--border);display:flex;align-items:center;gap:7px;font-size:12px;font-weight:700;background:var(--bg)}
+.chat-msgs{padding:10px 14px;display:flex;flex-direction:column;gap:8px;height:180px;overflow-y:auto}
+.msg{display:flex;flex-direction:column;gap:2px;max-width:75%}
+.msg.own{align-self:flex-end;align-items:flex-end}
+.mh{font-size:9px;color:var(--dim)}
+.mb{font-size:12px;padding:6px 10px;border-radius:8px;line-height:1.4}
+.msg.own .mb{background:var(--green-bg);border:1px solid var(--green-border);color:var(--green-dark)}
+.msg.other .mb{background:#f1f5f9;border:1px solid var(--border);color:var(--text2)}
+.chat-inp{padding:8px 14px;border-top:1.5px solid var(--border);display:flex;gap:6px;align-items:center;background:var(--bg)}
+.chat-inp span{font-size:11px;color:var(--green);font-weight:700}
+.cin{flex:1;background:var(--white);border:1.5px solid var(--border2);border-radius:6px;color:var(--text);font-family:inherit;font-size:11px;padding:5px 8px;outline:none}
+.cin:focus{border-color:var(--amber)}
+.sbtn{background:var(--green-bg);border:1.5px solid var(--green-border);border-radius:6px;color:var(--green-dark);cursor:pointer;padding:5px 10px;font-size:12px;font-weight:700}
+
+/* ── IPO ── */
+.icard{background:var(--white);border:1.5px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+.icard:hover{border-color:var(--amber)}
+.sub-bar-track{background:var(--border);border-radius:3px;height:7px;overflow:hidden;margin-bottom:10px}
+.sub-bar-fill{height:100%;border-radius:3px}
+
+/* ── DIVIDENDS ── */
+.div-hdr{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px;gap:10px;flex-wrap:wrap}
+.filter-btns{display:flex;gap:5px;flex-wrap:wrap}
+.fbtn{font-family:inherit;font-size:10px;padding:5px 12px;border-radius:6px;border:1.5px solid var(--border2);background:var(--white);color:var(--amber-dark);cursor:pointer;font-weight:700}
+.fbtn.on{border-color:var(--amber);color:#78350f;background:var(--amber-light)}
+.fbtn:hover:not(.on){background:var(--amber-light)}
+
+/* ── SHAREHOLDERS ── */
+.ticker-tabs{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}
+.tsb{font-family:inherit;font-size:12px;padding:6px 14px;border-radius:6px;border:1.5px solid var(--border2);background:var(--white);color:var(--amber-dark);cursor:pointer;font-weight:700}
+.tsb.on{border-color:var(--amber);color:#78350f;background:var(--amber-light)}
+.hrw{display:flex;align-items:center;gap:10px;padding:8px 14px;border-bottom:1px solid #f1f5f9}
+.hrw:last-child{border-bottom:none}
+.hrw:hover{background:var(--bg)}
+.hrank{font-size:11px;color:var(--dim);width:24px;text-align:right;flex-shrink:0;font-weight:700}
+.hname{flex:1;font-size:12px;color:var(--text2)}
+.hbar{width:100px;flex-shrink:0}
+.hbt{background:var(--border);border-radius:2px;height:5px;overflow:hidden}
+.hbf{height:100%;border-radius:2px}
+.hpct{font-size:11px;font-weight:700;text-align:right;width:48px;flex-shrink:0}
+
+/* ── NEWS ── */
+.ncard{
+  background:var(--white);border:1.5px solid var(--border);border-radius:10px;
+  padding:14px 16px;margin-bottom:10px;display:flex;gap:12px;align-items:flex-start;
+  transition:border-color .15s,box-shadow .15s;cursor:pointer;text-decoration:none;
+}
+.ncard:hover{border-color:var(--amber);box-shadow:0 2px 12px rgba(217,119,6,.1)}
+.nbadge{font-size:9px;font-weight:700;padding:3px 8px;border-radius:5px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+.ntit{font-size:13px;font-weight:700;color:var(--text);margin-bottom:6px;line-height:1.45}
+.nmeta{font-size:10px;color:var(--dim);display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.nsrc{color:var(--blue);font-weight:600}
+.nrel{color:var(--green);font-weight:600;background:var(--green-bg);padding:2px 7px;border-radius:4px;border:1px solid var(--green-border)}
+.nM{background:var(--green-bg);color:var(--green-dark);border:1px solid var(--green-border)}
+.nP{background:var(--blue-bg);color:#1e40af;border:1px solid #93c5fd}
+.nC{background:var(--amber-light);color:var(--amber-dark);border:1px solid #fcd34d}
+.nG{background:#ede9fe;color:#5b21b6;border:1px solid #c4b5fd}
+.nI{background:var(--red-bg);color:var(--red-dark);border:1px solid var(--red-border)}
+.nT{background:#f0fdf4;color:#166534;border:1px solid #86efac}
+.nB{background:#f8fafc;color:#475569;border:1px solid #cbd5e1}
+
+/* ── MISC ── */
+footer{text-align:center;padding:20px;font-size:10px;color:var(--dim);border-top:1px solid var(--border);background:var(--white);margin-top:20px}
+.em{text-align:center;padding:40px;color:var(--dim);font-size:12px}
+.panel-hdr{padding:10px 14px;border-bottom:1.5px solid var(--border);font-size:12px;font-weight:700;background:var(--bg);display:flex;align-items:center;gap:6px}
+
+/* ── EMBLEMS (company logos w/ fallback) ── */
+.emblem{width:32px;height:32px;border-radius:8px;object-fit:contain;background:var(--white);border:1px solid var(--border);flex-shrink:0;display:block}
+.emblem-sm{width:20px;height:20px;border-radius:4px;object-fit:contain;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);flex-shrink:0;display:inline-block;vertical-align:middle}
+.emblem-lg{width:56px;height:56px;border-radius:14px;object-fit:contain;background:var(--white);border:1.5px solid var(--border);flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.09)}
+.ticker-cell{display:flex;align-items:center;gap:8px}
+
+/* ── MARKET CLOCK ── */
+.mkt-clock{
+  background:var(--tape);border-bottom:1px solid #334155;
+  padding:6px 16px;display:flex;align-items:center;justify-content:space-between;
+  font-size:11px;gap:10px;flex-wrap:wrap;
+  position:sticky;top:84px;z-index:185;
+}
+.mkt-status{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.mkt-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;animation:pu 2s ease infinite}
+.mkt-dot.open{background:#10b981}
+.mkt-dot.closed{background:#ef4444;animation:none}
+.mkt-dot.pre{background:#f59e0b}
+.mkt-label{color:#f1f5f9;font-weight:700;letter-spacing:.5px}
+.mkt-time{color:#94a3b8}
+.mkt-countdown{color:#fbbf24;font-weight:700;font-size:12px;letter-spacing:.5px}
+.mkt-alert{background:#7f1d1d;border:1px solid #ef4444;border-radius:6px;padding:3px 10px;color:#fca5a5;font-weight:700;font-size:10px;animation:pulse-alert 1.5s ease infinite}
+@keyframes pulse-alert{0%,100%{opacity:1}50%{opacity:.6}}
+
+/* ── PORTFOLIO ── */
+.port-empty{text-align:center;padding:50px 20px;color:var(--dim)}
+.port-empty i{font-size:36px;color:#cbd5e1;display:block;margin-bottom:12px}
+.add-form{background:var(--white);border:1.5px solid var(--border);border-radius:10px;padding:16px;margin-bottom:14px}
+.add-form-title{font-size:13px;font-weight:700;color:var(--text);margin-bottom:12px;display:flex;align-items:center;gap:7px}
+.form-row{display:flex;gap:8px;flex-wrap:wrap;align-items:flex-end}
+.fld{display:flex;flex-direction:column;gap:4px;flex:1;min-width:120px}
+.fld label{font-size:9px;color:var(--dim);letter-spacing:1px;text-transform:uppercase;font-weight:700}
+.fld input,.fld select{background:var(--white);border:1.5px solid var(--border2);border-radius:6px;color:var(--text);font-family:inherit;font-size:12px;padding:7px 10px;outline:none;width:100%}
+.fld input:focus,.fld select:focus{border-color:var(--amber)}
+.abtn{background:var(--green-bg);border:1.5px solid var(--green-border);border-radius:7px;color:var(--green-dark);cursor:pointer;padding:7px 18px;font-family:inherit;font-size:12px;font-weight:700;white-space:nowrap;align-self:flex-end}
+.abtn:hover{background:#a7f3d0}
+.port-card{background:var(--white);border:1.5px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px;transition:border-color .15s}
+.port-card:hover{border-color:var(--amber)}
+.port-card-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;gap:10px;flex-wrap:wrap}
+.port-card-left{display:flex;align-items:center;gap:10px}
+.port-card-info{flex:1}
+.port-card-name{font-size:14px;font-weight:700;color:var(--text)}
+.port-card-sub{font-size:10px;color:var(--dim);margin-top:2px}
+.port-card-right{text-align:right}
+.port-mval{font-size:18px;font-weight:700;color:var(--text)}
+.port-gl{font-size:13px;font-weight:700;margin-top:2px}
+.port-gl.gain{color:var(--green)}.port-gl.loss{color:var(--red)}.port-gl.flat{color:var(--muted)}
+.port-card-body{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px}
+.port-stat{background:var(--bg);border-radius:7px;padding:8px 10px}
+.port-stat-l{font-size:8px;color:var(--dim);letter-spacing:.8px;text-transform:uppercase;margin-bottom:3px}
+.port-stat-v{font-size:13px;font-weight:700;color:var(--text2)}
+.dca-row{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.dca-tag{font-size:9px;padding:3px 8px;border-radius:4px;font-weight:700;background:var(--amber-light);color:var(--amber-dark);border:1px solid #fcd34d}
+.del-btn{background:var(--red-bg);border:1px solid var(--red-border);color:var(--red-dark);border-radius:5px;font-size:10px;padding:3px 9px;cursor:pointer;font-family:inherit;font-weight:700}
+.del-btn:hover{background:#fecaca}
+.port-summary{background:var(--white);border:1.5px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:14px}
+
+/* ── SHAREHOLDERS IN TICKER ── */
+.shr-section{margin-top:12px}
+
+/* ══════════════════════════════════════════════════════
+   MOBILE-FIRST RESPONSIVE SYSTEM
+   Breakpoints:
+     xs  : < 400px  (very small phones)
+     sm  : < 640px  (phones)
+     md  : < 768px  (large phones / small tablets)
+     lg  : < 1024px (tablets)
+══════════════════════════════════════════════════════ */
+
+/* ── BASE: prevent ALL horizontal overflow ── */
+html,body{
+  overflow-x:hidden;
+  max-width:100vw;
+}
+*{
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
+}
+img,svg,video,canvas{max-width:100%;height:auto}
+
+/* ── TOPBAR: safe on every width ── */
+.topbar{
+  padding:0 10px;
+  gap:6px;
+  min-height:52px;
+  flex-wrap:nowrap;
+  overflow:hidden;
+}
+.brand{
+  font-size:12px;
+  letter-spacing:.8px;
+  flex-shrink:0;
+  white-space:nowrap;
+}
+.brand img{
+  width:26px!important;
+  height:26px!important;
+}
+
+/* ── TABLES: scroll horizontally, never distort ── */
+.tbl-wrap{
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  border-radius:0 0 10px 10px;
+}
+table{
+  min-width:480px; /* ensures columns never squish below usable width */
+  width:100%;
+  border-collapse:collapse;
+  font-size:12px;
+}
+th,td{
+  white-space:nowrap;
+  padding:9px 10px;
+}
+
+/* ── MAIN CONTENT ── */
+.main{padding:12px;max-width:100%}
+
+/* ── STAT GRIDS ── */
+.sg{gap:8px}
+.s4,.s3,.s2{grid-template-columns:repeat(2,1fr)}
+
+/* ── TICKER PROFILE METRIC GRID ── */
+.mg{grid-template-columns:repeat(2,1fr);gap:8px}
+
+/* ── HERO card ── */
+.hero{
+  padding:14px 16px;
+  flex-direction:column;
+  gap:10px;
+  overflow:hidden;
+}
+.hero > div{width:100%;text-align:left!important}
+
+/* ── STAT card values ── */
+.sv{font-size:18px;line-height:1.2}
+.sc{padding:11px 12px}
+
+/* ── PAGE TITLE ── */
+.ptit{font-size:15px;flex-wrap:wrap}
+.psub{font-size:11px}
+
+/* ── NEWS CARDS ── */
+.ncard{
+  padding:12px 14px;
+  gap:10px;
+  flex-wrap:nowrap;
+  align-items:flex-start;
+}
+.ntit{font-size:12px;line-height:1.4}
+.nmeta{font-size:10px;gap:6px;flex-wrap:wrap}
+.nbadge{font-size:8px;padding:2px 6px}
+
+/* ── MARKET CLOCK ── */
+.mkt-clock{
+  padding:5px 10px;
+  font-size:10px;
+  flex-wrap:wrap;
+  gap:4px;
+}
+
+/* ── CHAT ── */
+.chat-msgs{height:150px}
+.msg{max-width:88%}
+
+/* ── PORTFOLIO ── */
+.port-card-body{grid-template-columns:repeat(2,1fr);gap:6px}
+.port-card-hdr{flex-wrap:wrap;gap:6px}
+.port-mval{font-size:16px}
+.port-gl{font-size:12px}
+.form-row{flex-direction:column;gap:8px}
+.fld{min-width:100%}
+.dca-row{flex-wrap:wrap;gap:4px}
+
+/* ── SHAREHOLDERS ── */
+.hrw{flex-wrap:wrap;gap:6px;padding:8px 10px}
+.hname{font-size:11px;min-width:0;flex:1}
+.hbar{display:none}
+.hrank{min-width:auto}
+
+/* ── KEY STATS TABLE in ticker profile ── */
+.ftbl{font-size:11px;width:100%}
+.ftbl td{
+  padding:6px 8px;
+  white-space:normal;
+  word-break:break-word;
+  font-size:11px;
+}
+.ftbl td:first-child{
+  width:110px;
+  font-size:8px;
+  color:var(--dim);
+  text-transform:uppercase;
+  font-weight:700;
+}
+.ftbl tr{display:flex;flex-wrap:wrap}
+.ftbl td{flex:1;min-width:120px}
+
+/* ── IPO CARDS ── */
+.icard{padding:12px}
+
+/* ── FILTER BUTTONS ── */
+.filter-btns{gap:4px}
+.fbtn{font-size:9px;padding:4px 8px}
+
+/* ── DIVIDEND TABLE ── */
+#dtb td{font-size:11px;padding:7px 8px}
+
+/* ── SEARCH ROW ── */
+.search-row{flex-direction:column;align-items:stretch;gap:8px}
+.sin{width:100%;font-size:12px;padding:8px 12px}
+
+/* ── TICKER CHIPS ── */
+.chip{font-size:9px;padding:3px 7px}
+.chips{gap:5px}
+
+/* ── PANEL HEADERS ── */
+.panel-hdr{font-size:11px;padding:9px 12px;flex-wrap:wrap;gap:4px}
+
+/* ── BACK BUTTON ── */
+.back-btn{font-size:13px;padding:6px 0;margin-bottom:10px}
+
+/* ── TICKER TABLE COLUMNS: hide less-critical ones on small screens ── */
+.col-prev,.col-flow{display:none}
+
+/* ── FOOTER: single column on mobile ── */
+footer > div:first-child > div{
+  grid-template-columns:1fr!important;
+  gap:20px!important;
+}
+
+/* ── FLOAT CONTACT BUTTON: move above bottom bar ── */
+#float-contact{bottom:16px;right:14px;width:46px;height:46px}
+#float-contact i{font-size:20px}
+
+/* ── DRAWER: full width on tiny screens ── */
+.drawer{width:min(280px, 90vw)}
+
+/* ── CHART BOX ── */
+.chart-box{padding:10px}
+.chart-box svg{height:100px}
+
+/* ── TICKER PROFILE: prevent any child from overflowing ── */
+#tc{overflow-x:hidden;width:100%}
+#tc *{max-width:100%}
+#tc .mg{grid-template-columns:repeat(2,1fr)!important}
+
+/* ── MARKET CLOCK sticky position fix ── */
+.mkt-clock{position:sticky;top:52px;z-index:185}
+
+
+/* Hide 'Contact' text on tiny phones, keep icon */
+@media(max-width:380px){
+  .contact-label{display:none}
+  .contact-topbtn{padding:5px 8px}
+}
+
+/* ── VERY SMALL PHONES (< 400px) ── */
+@media(max-width:400px){
+  .topbar{padding:0 8px;height:48px}
+  .brand{font-size:11px}
+  .main{padding:8px}
+  .s4,.s3,.s2,.mg{grid-template-columns:1fr 1fr;gap:6px}
+  .sv{font-size:16px}
+  .sc{padding:9px 10px}
+  table{min-width:380px;font-size:11px}
+  th,td{padding:7px 7px}
+  .ncard{padding:10px 12px}
+  .ntit{font-size:11px}
+  .port-card-body{grid-template-columns:1fr 1fr}
+  footer > div:first-child > div{grid-template-columns:1fr!important}
+  #float-contact{width:42px;height:42px;bottom:12px;right:10px}
+  #float-contact i{font-size:18px}
+}
+
+/* ── MEDIUM PHONES (640px – 768px) ── */
+@media(min-width:640px) and (max-width:768px){
+  .s4{grid-template-columns:repeat(2,1fr)}
+  .s3{grid-template-columns:repeat(3,1fr)}
+  .mg{grid-template-columns:repeat(2,1fr)}
+  .main{padding:16px}
+  table{min-width:auto}
+  .col-prev,.col-flow{display:table-cell}
+  footer > div:first-child > div{grid-template-columns:1fr 1fr!important}
+}
+
+/* ── TABLETS (768px – 1024px) ── */
+@media(min-width:768px) and (max-width:1024px){
+  .s4{grid-template-columns:repeat(4,1fr)}
+  .s3{grid-template-columns:repeat(3,1fr)}
+  .mg{grid-template-columns:repeat(4,1fr)}
+  .main{padding:18px}
+  table{min-width:auto;font-size:13px}
+  .col-prev,.col-flow{display:table-cell}
+}
+
+/* ── DESKTOP (> 1024px) ── */
+@media(min-width:1024px){
+  .s4{grid-template-columns:repeat(4,1fr)}
+  .s3{grid-template-columns:repeat(3,1fr)}
+  .mg{grid-template-columns:repeat(4,1fr)}
+  .sv{font-size:22px}
+  table{min-width:auto;font-size:12px}
+  .col-prev,.col-flow{display:table-cell}
+  .main{padding:20px}
+  footer > div:first-child > div{grid-template-columns:1fr 1fr 1fr!important}
+  .ham{display:none!important}
+  .navs{display:flex!important}
+}
+
+
+/* ── TOUCH OPTIMISATION ── */
+.tbl-wrap,.chat-msgs,.navs,.drawer-items{
+  -webkit-overflow-scrolling:touch;
+  scroll-behavior:smooth;
+}
+/* Minimum 44px tap target (Apple HIG) */
+.nb,.ditem,.fbtn,.tsb,.abtn,.sbtn,.cbtn,.back-btn{
+  min-height:36px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+tr.rh td{min-height:44px}
+/* Active state for mobile tap feedback */
+.nb:active,.ditem:active,.chip:active,.ncard:active{
+  opacity:.7;
+  transform:scale(.98);
+}
+tr.rh:active td{background:var(--amber-light)}
+
+/* ══ MODERN ANIMATIONS & EFFECTS ══ */
+@keyframes slideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+@keyframes countUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes glowPulse{0%,100%{box-shadow:0 0 0 0 rgba(5,150,105,.3)}50%{box-shadow:0 0 0 8px rgba(5,150,105,0)}}
+@keyframes borderFlow{0%{border-color:#059669}33%{border-color:#d97706}66%{border-color:#2563eb}100%{border-color:#059669}}
+
+/* Page entrance animation */
+.pg.on{animation:fadeIn .25s ease}
+
+/* Card hover lift */
+.sc,.panel,.icard,.port-card,.ncard{transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.sc:hover,.icard:hover,.port-card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.09)}
+.ncard:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.09);border-color:var(--amber)!important}
+
+/* Number value animation */
+.sv{transition:color .4s ease}
+
+/* Shimmer skeleton loader */
+.skeleton{background:linear-gradient(90deg,#f1f5f9 25%,#e2e8f0 50%,#f1f5f9 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;border-radius:6px;height:16px;display:block}
+
+/* Glowing live dot */
+.ld{animation:glowPulse 2s ease infinite}
+
+/* Table row hover */
+tr.rh{transition:background .15s}
+tr.rh:hover td{background:var(--amber-light)}
+
+/* Tape pause on hover label */
+.tape-wrap::after{content:'⏸ hover to pause';position:absolute;right:8px;font-size:9px;color:#475569;pointer-events:none;font-family:Inter,sans-serif}
+
+/* Smooth stat value transitions */
+.sv,.mkt-countdown{transition:all .3s ease}
+
+/* Contact modal backdrop */
+#contact-modal.open{display:flex!important;animation:fadeIn .2s ease}
+
+/* Footer responsive */
+@media(max-width:640px){
+  footer .footer-grid{grid-template-columns:1fr!important}
+}
+/* Scrollbar styling */
+::-webkit-scrollbar{width:4px;height:4px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:#94a3b8}
+
+/* Floating contact button */
+#float-contact{
+  position:fixed;bottom:24px;right:20px;z-index:8000;
+  width:52px;height:52px;border-radius:50%;
+  background:#25D366;border:none;cursor:pointer;
+  box-shadow:0 4px 20px rgba(37,211,102,.45);
+  display:flex;align-items:center;justify-content:center;
+  transition:transform .2s,box-shadow .2s;
+  animation:glowPulse 3s ease infinite;
+}
+#float-contact:hover{transform:scale(1.1);box-shadow:0 8px 32px rgba(37,211,102,.6)}
+#float-contact i{font-size:24px;color:#fff}
+#float-contact .float-badge{
+  position:absolute;top:-4px;right:-4px;
+  background:#ef4444;color:#fff;
+  border-radius:50%;width:18px;height:18px;
+  font-size:9px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  border:2px solid #fff;font-family:Inter,sans-serif;
+}
+
+/* Animated hero price */
+.hero-price{
+  font-size:36px!important;font-weight:800!important;
+  font-family:Inter,sans-serif!important;
+  background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-price.up{background:linear-gradient(135deg,#059669,#10b981);-webkit-background-clip:text;background-clip:text;}
+.hero-price.dn{background:linear-gradient(135deg,#dc2626,#ef4444);-webkit-background-clip:text;background-clip:text;}
+
+/* Smooth page transitions */
+.pg{transition:opacity .2s ease}
+.pg:not(.on){opacity:0;pointer-events:none}
+.pg.on{opacity:1}
+
+/* News card image placeholder accent */
+.ncard{border-left:3px solid transparent;transition:border-left-color .2s,transform .2s,box-shadow .2s}
+.ncard:hover{border-left-color:var(--amber)}
+
+/* Chip pulse on new data */
+.chip.cg{animation:none}
+.chip.cr{animation:none}
+
+</style>
+</head>
+<body>
+
+<!-- MOBILE DRAWER OVERLAY -->
+<div id="tt-popup" class="tooltip-popup"></div>
+<div class="drawer-overlay" id="overlay" onclick="closeDrawer()"></div>
+
+<!-- MOBILE DRAWER -->
+<div class="drawer" id="drawer">
+  <div class="drawer-hdr">
+    <div class="drawer-brand"><img src="data:image/png;base64,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" alt="GSE" style="width:24px;height:24px;border-radius:6px;object-fit:cover;"> GSE TERMINAL</div>
+    <button class="drawer-close" onclick="closeDrawer()"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <div class="drawer-items">
+    <button class="ditem on" onclick="goD('market')" id="d-market"><i class="fa-solid fa-table-cells"></i> Market Board</button>
+    <button class="ditem" onclick="goD('ticker')" id="d-ticker"><i class="fa-solid fa-magnifying-glass-dollar"></i> Ticker Profile</button>
+    <button class="ditem" onclick="goD('ipo')" id="d-ipo"><i class="fa-solid fa-bolt"></i> IPO Tracker</button>
+    <button class="ditem" onclick="goD('dividends')" id="d-dividends"><i class="fa-solid fa-coins"></i> Dividends</button>
+    <button class="ditem" onclick="goD('news')" id="d-news"><i class="fa-solid fa-newspaper"></i> News</button>
+    <button class="ditem" onclick="goD('portfolio')" id="d-portfolio"><i class="fa-solid fa-briefcase"></i> My Portfolio</button>
+  </div>
+  <div class="drawer-cur">
+    <button onclick="toggleC();closeDrawer()" id="dcbtn">Switch to USD $</button>
+  </div>
+</div>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <button class="ham" onclick="openDrawer()" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+  <div class="brand" onclick="openDrawer()">
+    <img src="data:image/png;base64,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" alt="GSE" style="width:28px;height:28px;border-radius:7px;flex-shrink:0;object-fit:cover;">
+    GSE TERMINAL
+  </div>
+  <nav class="navs">
+    <button class="nb on" onclick="go('market')" id="n-market"><i class="fa-solid fa-table-cells"></i> Market Board</button>
+    <button class="nb" onclick="go('ticker')" id="n-ticker"><i class="fa-solid fa-magnifying-glass-dollar"></i> Ticker Profile</button>
+    <button class="nb" onclick="go('ipo')" id="n-ipo"><i class="fa-solid fa-bolt"></i> IPO Tracker</button>
+    <button class="nb" onclick="go('dividends')" id="n-dividends"><i class="fa-solid fa-coins"></i> Dividends</button>
+    <button class="nb" onclick="go('news')" id="n-news"><i class="fa-solid fa-newspaper"></i> News</button>
+    <button class="nb" onclick="go('portfolio')" id="n-portfolio"><i class="fa-solid fa-briefcase"></i> Portfolio</button>
+  </nav>
+  <button onclick="openContact()" class="contact-topbtn" style="font-size:10px;font-family:Inter,sans-serif;padding:5px 10px;border:1.5px solid #059669;border-radius:6px;background:#d1fae5;color:#065f46;cursor:pointer;font-weight:700;white-space:nowrap;margin-right:4px;transition:all .15s;flex-shrink:0" onmouseover="this.style.background='#059669';this.style.color='#fff'" onmouseout="this.style.background='#d1fae5';this.style.color='#065f46'"><i class="fa-solid fa-envelope"></i><span class="contact-label"> Contact</span></button>
+  <button class="cbtn" onclick="toggleC()" id="cbtn">GHS ₵</button>
+</div>
+
+<!-- TICKER TAPE -->
+<div class="tape-wrap">
+  <div class="tape-inner" id="tape">
+    <span class="titem"><span class="tsym">LOADING</span><span class="tpx">…</span></span>
+  </div>
+</div>
+
+<!-- MARKET CLOCK -->
+<div class="mkt-clock">
+  <div class="mkt-status">
+    <span class="mkt-dot" id="mkt-dot"></span>
+    <span class="mkt-label" id="mkt-label">GSE MARKET</span>
+    <span class="mkt-time" id="mkt-time"></span>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+    <span class="mkt-countdown" id="mkt-countdown"></span>
+    <span class="mkt-alert" id="mkt-alert" style="display:none"><i class="fa-solid fa-bell"></i> MARKET CLOSES IN 2 HOURS</span>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- MARKET BOARD -->
+  <div class="pg on" id="pg-market">
+    <div class="ptit"><i class="fa-solid fa-chart-bar"></i> Market Board</div>
+    <div class="psub" id="msub">Connecting to GSE live feed…</div>
+    <div class="sg s4">
+      <div class="sc"><div class="sl">Total Equities</div><div class="sv" id="s-eq">—</div></div>
+      <div class="sc"><div class="sl">Gainers</div><div class="sv g" id="s-gn">—</div></div>
+      <div class="sc"><div class="sl">Losers</div><div class="sv r" id="s-ls">—</div></div>
+      <div class="sc"><div class="sl">Total Volume</div><div class="sv b" id="s-vl">—</div></div>
+    </div>
+    <div class="chips" id="chips"></div>
+    <div class="search-row">
+      <div class="liv"><span class="ld"></span> GSE Live · kwayisi.org</div>
+      <input class="sin" id="sin" placeholder="🔍 Filter tickers…" oninput="renderM()">
+    </div>
+    <div class="panel">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr>
+            <th onclick="srt('ticker')">Ticker <span id="s-tk"></span></th>
+            <th onclick="srt('price')">Price <span id="s-pr"></span></th>
+            <th onclick="srt('change')">Change <span id="s-ch"></span></th>
+            <th onclick="srt('pct')">% <span id="s-pc"></span></th>
+            <th onclick="srt('volume')">Vol <span id="s-vo"></span></th>
+            <th class="col-prev">Prev Close</th>
+            <th class="col-flow">Flow</th>
+          </tr></thead>
+          <tbody id="mtb"><tr><td colspan="7" class="em"><i class="fa-solid fa-spinner fa-spin"></i> Fetching live GSE data…</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- TICKER PROFILE -->
+  <div class="pg" id="pg-ticker">
+    <button class="back-btn" onclick="go('market')"><i class="fa-solid fa-arrow-left"></i> Back to Market Board</button>
+    <div id="tc"><div class="em" style="padding:60px"><i class="fa-solid fa-magnifying-glass-dollar" style="font-size:32px;color:#cbd5e1;display:block;margin-bottom:12px"></i>Click any ticker row on Market Board to view its full profile.</div></div>
+  </div>
+
+  <!-- IPO -->
+  <div class="pg" id="pg-ipo">
+    <div class="ptit"><i class="fa-solid fa-bolt" style="color:var(--amber)"></i> IPO Tracker</div>
+    <div class="psub">Primary market listings · bookbuilding &amp; subscription analytics</div>
+    <div class="sg s3">
+      <div class="sc"><div class="sl">Active IPOs</div><div class="sv g">1</div></div>
+      <div class="sc"><div class="sl">Upcoming</div><div class="sv y">1</div></div>
+      <div class="sc"><div class="sl">Total Tracked</div><div class="sv">3</div></div>
+    </div>
+    <div id="ipoc"></div>
+  </div>
+
+  <!-- DIVIDENDS -->
+  <div class="pg" id="pg-dividends">
+    <div class="div-hdr">
+      <div>
+        <div class="ptit"><i class="fa-solid fa-coins" style="color:var(--green)"></i> Corporate Actions &amp; Dividends</div>
+        <div class="psub">Ex-dividend dates, record dates, and payment schedules</div>
+      </div>
+      <div class="filter-btns">
+        <button class="fbtn on" onclick="df('ALL',this)">ALL</button>
+        <button class="fbtn" onclick="df('UPCOMING',this)">UPCOMING</button>
+        <button class="fbtn" onclick="df('PAID',this)">PAID</button>
+      </div>
+    </div>
+    <div class="sg s3" style="margin-bottom:14px">
+      <div class="sc"><div class="sl">Total Records</div><div class="sv">8</div></div>
+      <div class="sc"><div class="sl">Upcoming Events</div><div class="sv y">3</div></div>
+      <div class="sc"><div class="sl">Avg Yield</div><div class="sv g">4.61%</div></div>
+    </div>
+    <div class="panel"><div class="tbl-wrap"><table>
+      <thead><tr><th>Company</th><th>Type</th><th>DPS / Yield</th><th>Ex-Date</th><th>Payment Date</th><th>Status</th></tr></thead>
+      <tbody id="dtb"></tbody>
+    </table></div></div>
+  </div>
+
+  <!-- PORTFOLIO -->
+  <div class="pg" id="pg-portfolio">
+    <div class="ptit"><i class="fa-solid fa-briefcase" style="color:var(--amber)"></i> My Portfolio</div>
+    <div class="psub">Track your GSE holdings, DCA cost basis, and real-time gains &amp; losses</div>
+
+    <!-- Summary row -->
+    <div class="port-summary" id="port-summary-box" style="display:none">
+      <div class="sg s4" style="margin-bottom:0">
+        <div class="sc"><div class="sl">Portfolio Value</div><div class="sv b" id="ps-val">—</div></div>
+        <div class="sc"><div class="sl">Total Cost</div><div class="sv" id="ps-cost">—</div></div>
+        <div class="sc"><div class="sl">Total Gain/Loss</div><div class="sv" id="ps-gl">—</div></div>
+        <div class="sc"><div class="sl">Return</div><div class="sv" id="ps-pct">—</div></div>
+      </div>
+    </div>
+
+    <!-- Add stock form -->
+    <div class="add-form">
+      <div class="add-form-title"><i class="fa-solid fa-circle-plus" style="color:var(--green)"></i> Add Stock to Portfolio</div>
+      <div class="form-row">
+        <div class="fld">
+          <label>Ticker Symbol</label>
+          <select id="pf-ticker">
+            <option value="">— Select Ticker —</option>
+          </select>
+        </div>
+        <div class="fld">
+          <label>Shares Owned</label>
+          <input type="number" id="pf-qty" placeholder="e.g. 500" min="1" step="1">
+        </div>
+        <div class="fld">
+          <label>Avg Buy Price (₵) — DCA</label>
+          <input type="number" id="pf-cost" placeholder="e.g. 6.10" min="0" step="0.01">
+        </div>
+        <div class="fld">
+          <label>Label (optional)</label>
+          <input type="text" id="pf-label" placeholder="e.g. Long-term hold">
+        </div>
+        <button class="abtn" onclick="addPortfolioStock()"><i class="fa-solid fa-plus"></i> Add</button>
+      </div>
+      <div id="pf-err" style="font-size:11px;color:var(--red);margin-top:8px;display:none"></div>
+    </div>
+
+    <!-- Holdings -->
+    <div id="port-holdings">
+      <div class="port-empty" id="port-empty">
+        <i class="fa-solid fa-briefcase"></i>
+        <div style="font-size:14px;font-weight:700;margin-bottom:6px">No holdings yet</div>
+        <div>Add your first stock above to start tracking your portfolio</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SHAREHOLDERS (now hidden page, kept for data) -->
+  <div class="pg" id="pg-shareholders" style="display:none!important"></div>
+
+  <!-- NEWS -->
+  <div class="pg" id="pg-news">
+    <div class="ptit"><i class="fa-solid fa-newspaper"></i> Market News &amp; Analysis</div>
+    <div class="psub">Live feed · Ghana &amp; global business news</div>
+    <div class="sg s3" style="margin-bottom:16px">
+      <div class="sc"><div class="sl">Stories Loaded</div><div class="sv b" id="news-count">—</div></div>
+      <div class="sc"><div class="sl">Market Alerts</div><div class="sv r" id="news-alerts">—</div></div>
+      <div class="sc"><div class="sl">Last Fetched</div><div class="sv" style="font-size:13px" id="news-updated">—</div></div>
+    </div>
+    <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;align-items:center">
+      <div class="filter-btns" id="news-filter-btns">
+        <button class="fbtn on" onclick="newsFilter('ALL',this)">ALL</button>
+        <button class="fbtn" onclick="newsFilter('MARKET',this)">MARKET</button>
+        <button class="fbtn" onclick="newsFilter('CORPORATE',this)">CORPORATE</button>
+        <button class="fbtn" onclick="newsFilter('POLICY',this)">POLICY</button>
+        <button class="fbtn" onclick="newsFilter('GLOBAL',this)">GLOBAL</button>
+        <button class="fbtn" onclick="newsFilter('IPO',this)">IPO</button>
+        <button class="fbtn" onclick="newsFilter('TECH',this)">TECH</button>
+        <button class="fbtn" onclick="newsFilter('BUSINESS',this)">BUSINESS</button>
+      </div>
+      <button id="news-refresh-btn" onclick="fetchLiveNews()" style="margin-left:auto;font-family:inherit;font-size:10px;padding:5px 14px;border-radius:6px;border:1.5px solid var(--green-border);background:var(--green-bg);color:var(--green-dark);cursor:pointer;font-weight:700;display:flex;align-items:center;gap:5px"><i class="fa-solid fa-rotate-right"></i> Refresh</button>
+    </div>
+    <div id="newsfeed"></div>
+  </div>
+
+</div>
+
+<!-- ══ CONTACT MODAL ══ -->
+<div id="contact-modal" style="display:none;position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);align-items:center;justify-content:center;">
+  <div style="background:#fff;border-radius:20px;padding:32px 28px;max-width:380px;width:92%;margin:auto;box-shadow:0 24px 80px rgba(0,0,0,.3);position:relative;animation:slideUp .3s ease">
+    <button onclick="closeContact()" style="position:absolute;top:16px;right:16px;background:#f1f5f9;border:none;border-radius:50%;width:32px;height:32px;cursor:pointer;font-size:16px;color:#64748b;display:flex;align-items:center;justify-content:center;">✕</button>
+    <div style="text-align:center;margin-bottom:24px">
+      <div style="font-size:40px;margin-bottom:10px">📬</div>
+      <div style="font-size:20px;font-weight:800;color:#0f172a;font-family:Inter,sans-serif">Get in Touch</div>
+      <div style="font-size:12px;color:#64748b;margin-top:4px">We respond within 24 hours</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <a href="mailto:attah.godsway999@gmail.com" style="display:flex;align-items:center;gap:14px;padding:14px 16px;background:#f8fafc;border:1.5px solid #e2e8f0;border-radius:12px;text-decoration:none;transition:all .2s" onmouseover="this.style.borderColor='#059669';this.style.background='#d1fae5'" onmouseout="this.style.borderColor='#e2e8f0';this.style.background='#f8fafc'">
+        <div style="width:40px;height:40px;background:#059669;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="fa-solid fa-envelope" style="color:#fff;font-size:16px"></i></div>
+        <div><div style="font-size:11px;color:#64748b;font-weight:600;text-transform:uppercase;letter-spacing:.8px">Email</div><div style="font-size:13px;font-weight:700;color:#0f172a;margin-top:2px">attah.godsway999@gmail.com</div></div>
+      </a>
+      <a href="tel:+233533833623" style="display:flex;align-items:center;gap:14px;padding:14px 16px;background:#f8fafc;border:1.5px solid #e2e8f0;border-radius:12px;text-decoration:none;transition:all .2s" onmouseover="this.style.borderColor='#2563eb';this.style.background='#dbeafe'" onmouseout="this.style.borderColor='#e2e8f0';this.style.background='#f8fafc'">
+        <div style="width:40px;height:40px;background:#2563eb;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="fa-solid fa-phone" style="color:#fff;font-size:16px"></i></div>
+        <div><div style="font-size:11px;color:#64748b;font-weight:600;text-transform:uppercase;letter-spacing:.8px">Phone / WhatsApp</div><div style="font-size:13px;font-weight:700;color:#0f172a;margin-top:2px">+233 53 383 3623</div></div>
+      </a>
+      <a href="https://wa.me/233533833623?text=Hello%2C%20I%20found%20you%20on%20GSE%20Terminal%20app!" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:8px;padding:14px;background:#25D366;border:none;border-radius:12px;text-decoration:none;color:#fff;font-weight:700;font-size:14px;transition:opacity .2s" onmouseover="this.style.opacity='.88'" onmouseout="this.style.opacity='1'">
+        <i class="fa-brands fa-whatsapp" style="font-size:18px"></i> Chat on WhatsApp
+      </a>
+    </div>
+    <div style="text-align:center;margin-top:16px;font-size:10px;color:#94a3b8">GSE Terminal · Ghana Stock Exchange</div>
+  </div>
+</div>
+
+<footer style="background:#0f172a;color:#94a3b8;padding:0;margin-top:20px">
+  <!-- Top footer band -->
+  <div style="padding:24px 16px;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px" class="footer-grid">
+    <!-- Brand -->
+    <div>
+      <div style="font-size:16px;font-weight:800;color:#f1f5f9;letter-spacing:1px;margin-bottom:8px;font-family:Inter,sans-serif">📈 GSE TERMINAL</div>
+      <div style="font-size:12px;line-height:1.7;color:#64748b">Ghana's live stock market terminal. Real-time prices, news &amp; portfolio tracking.</div>
+      <div style="margin-top:14px;display:flex;gap:10px">
+        <a href="mailto:attah.godsway999@gmail.com" title="Email" style="width:34px;height:34px;background:#1e293b;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#94a3b8;text-decoration:none;transition:all .2s" onmouseover="this.style.background='#059669';this.style.color='#fff'" onmouseout="this.style.background='#1e293b';this.style.color='#94a3b8'"><i class="fa-solid fa-envelope" style="font-size:14px"></i></a>
+        <a href="tel:+233533833623" title="Call" style="width:34px;height:34px;background:#1e293b;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#94a3b8;text-decoration:none;transition:all .2s" onmouseover="this.style.background='#2563eb';this.style.color='#fff'" onmouseout="this.style.background='#1e293b';this.style.color='#94a3b8'"><i class="fa-solid fa-phone" style="font-size:14px"></i></a>
+        <a href="https://wa.me/233533833623" target="_blank" title="WhatsApp" style="width:34px;height:34px;background:#1e293b;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#94a3b8;text-decoration:none;transition:all .2s" onmouseover="this.style.background='#25D366';this.style.color='#fff'" onmouseout="this.style.background='#1e293b';this.style.color='#94a3b8'"><i class="fa-brands fa-whatsapp" style="font-size:16px"></i></a>
+      </div>
+    </div>
+    <!-- Quick Links -->
+    <div>
+      <div style="font-size:11px;font-weight:700;color:#f1f5f9;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:12px">Quick Links</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <a onclick="go('market')" style="font-size:12px;color:#64748b;cursor:pointer;transition:color .15s;text-decoration:none" onmouseover="this.style.color='#059669'" onmouseout="this.style.color='#64748b'">📊 Market Board</a>
+        <a onclick="go('ipo')" style="font-size:12px;color:#64748b;cursor:pointer;transition:color .15s;text-decoration:none" onmouseover="this.style.color='#059669'" onmouseout="this.style.color='#64748b'">⚡ IPO Tracker</a>
+        <a onclick="go('dividends')" style="font-size:12px;color:#64748b;cursor:pointer;transition:color .15s;text-decoration:none" onmouseover="this.style.color='#059669'" onmouseout="this.style.color='#64748b'">💰 Dividends</a>
+        <a onclick="go('news')" style="font-size:12px;color:#64748b;cursor:pointer;transition:color .15s;text-decoration:none" onmouseover="this.style.color='#059669'" onmouseout="this.style.color='#64748b'">📰 Market News</a>
+        <a onclick="go('portfolio')" style="font-size:12px;color:#64748b;cursor:pointer;transition:color .15s;text-decoration:none" onmouseover="this.style.color='#059669'" onmouseout="this.style.color='#64748b'">💼 My Portfolio</a>
+      </div>
+    </div>
+    <!-- Contact -->
+    <div>
+      <div style="font-size:11px;font-weight:700;color:#f1f5f9;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:12px">Contact</div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <a href="mailto:attah.godsway999@gmail.com" style="display:flex;align-items:center;gap:8px;font-size:12px;color:#64748b;text-decoration:none;transition:color .15s" onmouseover="this.style.color='#f1f5f9'" onmouseout="this.style.color='#64748b'"><i class="fa-solid fa-envelope" style="width:14px;color:#059669"></i> attah.godsway999@gmail.com</a>
+        <a href="tel:+233533833623" style="display:flex;align-items:center;gap:8px;font-size:12px;color:#64748b;text-decoration:none;transition:color .15s" onmouseover="this.style.color='#f1f5f9'" onmouseout="this.style.color='#64748b'"><i class="fa-solid fa-phone" style="width:14px;color:#2563eb"></i> +233 53 383 3623</a>
+        <a href="https://wa.me/233533833623" target="_blank" style="display:flex;align-items:center;gap:8px;font-size:12px;color:#64748b;text-decoration:none;transition:color .15s" onmouseover="this.style.color='#25D366'" onmouseout="this.style.color='#64748b'"><i class="fa-brands fa-whatsapp" style="width:14px;color:#25D366"></i> WhatsApp Us</a>
+        <button onclick="openContact()" style="margin-top:6px;background:#059669;border:none;color:#fff;border-radius:8px;padding:9px 16px;font-size:12px;font-weight:700;cursor:pointer;font-family:Inter,sans-serif;width:100%;transition:background .2s" onmouseover="this.style.background='#047857'" onmouseout="this.style.background='#059669'">✉ Send a Message</button>
+      </div>
+    </div>
+  </div>
+  <!-- Bottom bar -->
+  <div style="border-top:1px solid #1e293b;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;max-width:1200px;margin:0 auto">
+    <div style="font-size:10px;color:#475569">© 2026 GSE Terminal · Data: kwayisi.org · For informational purposes only · Not financial advice</div>
+    <div style="font-size:10px;color:#475569;display:flex;gap:12px">
+      <span style="cursor:pointer;transition:color .15s" onmouseover="this.style.color='#f1f5f9'" onmouseout="this.style.color='#475569'" onclick="openContact()">Contact</span>
+      <a href="mailto:attah.godsway999@gmail.com" style="color:#475569;text-decoration:none;transition:color .15s" onmouseover="this.style.color='#f1f5f9'" onmouseout="this.style.color='#475569'">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── DRAWER ── */
+function openDrawer(){
+  document.getElementById('drawer').classList.add('open');
+  document.getElementById('overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeDrawer(){
+  document.getElementById('drawer').classList.remove('open');
+  document.getElementById('overlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+function goD(n){go(n);closeDrawer();}
+
+/* ── TOOLTIP SYSTEM ── */
+const TIPS={
+  PRICE:{label:'Current Price',text:'The latest traded price of this stock on the Ghana Stock Exchange. Updates in real time during market hours (10:00 AM – 3:00 PM GMT).'},
+  PREV_CLOSE:{label:'Previous Close',text:'The official closing price from the last trading session. Used as the baseline to calculate today\'s change.'},
+  CHANGE:{label:'Price Change',text:'The difference between today\'s current price and the previous close. A positive value means the stock has risen; negative means it has fallen.'},
+  PCT_CHANGE:{label:'Percentage Change',text:'The price change expressed as a percentage of the previous close. Helps compare performance across different-priced stocks.'},
+  MARKET_CAP:{label:'Market Capitalisation',text:'Total market value of the company — calculated as Current Price × Total Shares in Issue. Reflects the overall size of the company as valued by the market.'},
+  SHARES:{label:'Shares in Issue',text:'The total number of ordinary shares that the company has issued and are currently outstanding. Also called "float" or "issued shares."'},
+  EPS:{label:'Earnings Per Share',text:'Net profit divided by the number of shares. Shows how much profit each share earned. Higher EPS generally signals better profitability.'},
+  DPS:{label:'Dividend Per Share',text:'The cash amount paid to each shareholder per share, declared by the company\'s board. Paid from company profits and can be interim or final.'},
+  PE:{label:'Price-to-Earnings Ratio',text:'Share Price ÷ EPS. Tells you how much investors are paying for each cedi of earnings. A lower P/E may indicate undervaluation; a very high P/E can suggest overvaluation or high growth expectations.'},
+  VOLUME:{label:'Trading Volume',text:'The number of shares traded during the current or most recent session. High volume often confirms price moves; low volume can signal thin liquidity on the GSE.'},
+  SECTOR:{label:'Sector',text:'The broad economic sector this company belongs to (e.g. Financials, Telecommunications, Energy). Useful for comparing performance with peers in the same industry.'},
+  INDUSTRY:{label:'Industry',text:'A more specific classification within the sector. For example, within Financials you might find Commercial Banking or Insurance.'},
+};
+let _ttTimer=null;
+function showTip(e,key){
+  e.stopPropagation();
+  const d=TIPS[key];if(!d)return;
+  const pop=document.getElementById('tt-popup');
+  pop.innerHTML=`<div class="tt-label">${d.label}</div>${d.text}`;
+  pop.classList.add('show');
+  // Position near button
+  const r=e.target.getBoundingClientRect();
+  let top=r.bottom+8,left=r.left-10;
+  if(left+270>window.innerWidth)left=window.innerWidth-278;
+  if(top+120>window.innerHeight)top=r.top-130;
+  pop.style.top=top+'px';pop.style.left=Math.max(8,left)+'px';
+  clearTimeout(_ttTimer);
+  _ttTimer=setTimeout(hideTip,5000);
+}
+function hideTip(){
+  const pop=document.getElementById('tt-popup');
+  if(pop)pop.classList.remove('show');
+}
+document.addEventListener('click',hideTip);
+
+/* ── TAPE CLICK → TICKER PROFILE ── */
+function tapeClick(ticker){openT(ticker);}
+
+/* ── CHAT: 1-DAY EXPIRY ── */
+function getChatKey(ticker){return'gse_chat_'+ticker;}
+function saveChat(ticker,msgs){
+  localStorage.setItem(getChatKey(ticker),JSON.stringify({msgs,ts:Date.now()}));
+}
+function loadChat(ticker){
+  try{
+    const raw=localStorage.getItem(getChatKey(ticker));
+    if(!raw)return null;
+    const obj=JSON.parse(raw);
+    // Expire after 1 day (86400000 ms)
+    if(Date.now()-obj.ts>86400000){localStorage.removeItem(getChatKey(ticker));return null;}
+    return obj.msgs;
+  }catch{return null;}
+}
+
+
+/* ── NAV ── */
+function go(n){
+  document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.nb').forEach(b=>b.classList.remove('on'));
+  document.querySelectorAll('.ditem').forEach(b=>b.classList.remove('on'));
+  document.getElementById('pg-'+n).classList.add('on');
+  const nb=document.getElementById('n-'+n);if(nb)nb.classList.add('on');
+  const db=document.getElementById('d-'+n);if(db)db.classList.add('on');
+  window.scrollTo({top:0,behavior:'smooth'});
+  // Auto-load news on first visit
+  if(n==='news'&&!newsFetched)fetchLiveNews();
+}
+
+/* ── COMPANY REGISTRY ──────────────────────────────────────────────
+   skipClearbit:true  → go straight to Google favicon (skip Clearbit)
+   All others try: Clearbit → Google favicon → coloured initials
+────────────────────────────────────────────────────────────────── */
+const CO = {
+  MTNGH:    {name:'MTN Ghana',          domain:'mtn.com',               color:'#FFCC00',fg:'#000'},
+  GCB:      {name:'GCB Bank',           domain:'gcbbank.com.gh',        color:'#006633',fg:'#fff'},
+  SCB:      {name:'Standard Chartered', domain:'sc.com',                color:'#1AA3B1',fg:'#fff'},
+  SCBPREF:  {name:'SCB Preference',     domain:'sc.com',                color:'#1AA3B1',fg:'#fff'},
+  EGH:      {name:'Ecobank Ghana',      domain:'ecobank.com',           color:'#003087',fg:'#fff'},
+  ETI:      {name:'Ecobank Transnat.',  domain:'ecobank.com',           color:'#003087',fg:'#fff'},
+  CAL:      {name:'CAL Bank',           domain:'calbank.net',           color:'#E30613',fg:'#fff'},
+  ACCESS:   {name:'Access Bank Ghana',  domain:'accessbankplc.com',     color:'#F80000',fg:'#fff'},
+  ADB:      {name:'Agric. Dev. Bank',   domain:'adb.com.gh',            color:'#007A33',fg:'#fff'},
+  AGA:      {name:'AngloGold Ashanti',  domain:'anglogoldashanti.com',  color:'#C8963E',fg:'#fff'},
+  AADS:     {name:'AngloGold ADS',      domain:'anglogoldashanti.com',  color:'#C8963E',fg:'#000'},
+  SOGEGH:   {name:'Societe Generale',   domain:'societegenerale.com',   color:'#E60028',fg:'#fff'},
+  RBGH:     {name:'Republic Bank GH',   domain:'republicbank.com.gh',   color:'#002147',fg:'#fff'},
+  EGL:      {name:'Enterprise Group',   domain:'enterprise-group.com',  color:'#C8102E',fg:'#fff'},
+  TOTAL:    {name:'TotalEnergies GH',   domain:'totalenergies.com',     color:'#EF3340',fg:'#fff'},
+  GOIL:     {name:'GOIL Company',       domain:'goil.com.gh',           color:'#E31837',fg:'#fff'},
+  GGBL:     {name:'Guinness Ghana',     domain:'diageo.com',            color:'#003399',fg:'#fff'},
+  UNIL:     {name:'Unilever Ghana',     domain:'unilever.com',          color:'#1565C0',fg:'#fff'},
+  TLW:      {name:'Tullow Oil',         domain:'tullowoil.com',         color:'#E4003B',fg:'#fff'},
+  GLD:      {name:'NewGold ETF',        domain:'absa.co.za',            color:'#B8860B',fg:'#fff'},
+  SIC:      {name:'SIC Insurance',      domain:'sicghana.com',          color:'#006400',fg:'#fff'},
+  FML:      {name:'Fan Milk',           domain:'fanmilkghana.com',      color:'#E63946',fg:'#fff'},
+  ZEN:      {name:'ZEN Petroleum',      domain:'zenpetroleum.com.gh',   color:'#1565C0',fg:'#fff'},
+  KASA:     {name:'Kasapreko',          domain:'kasapreko.com',         color:'#006400',fg:'#fff'},
+  FAB:      {name:'First Atlantic Bank',domain:'firstatlantic.com.gh',  color:'#0D47A1',fg:'#fff'},
+  BOPP:     {name:'Benso Oil Palm',     domain:'bopp.com.gh',           color:'#2E7D32',fg:'#fff'},
+  CPC:      {name:'Cocoa Processing',   domain:'cocobod.gh',            color:'#5D4037',fg:'#fff'},
+  MAC:      {name:'Mega African Cap.',  domain:'megacapital.com.gh',    color:'#880E4F',fg:'#fff'},
+  SAMBA:    {name:'Samba Foods',        domain:'sambafoods.com.gh',     color:'#BF360C',fg:'#fff'},
+  TBL:      {name:'Trust Bank Ltd',     domain:'trustbank.com.gh',      color:'#1A237E',fg:'#fff'},
+  HORDS:    {name:'Hords Ltd',          domain:'hords.com.gh',          color:'#FF6F00',fg:'#fff'},
+  // ── Smaller/niche: skip Clearbit, go straight to Google favicon ──
+  ALLGH:    {name:'Atlantic Lithium',   domain:'atlanticlithium.com',   color:'#1B6CA8',fg:'#fff',skipClearbit:true},
+  ASG:      {name:'Asante Gold',        domain:'asantegold.com',        color:'#D4AF37',fg:'#000',skipClearbit:true},
+  IIL:      {name:'Industrial Images',  domain:'industrialimages.com',  color:'#5C6BC0',fg:'#fff',skipClearbit:true},
+  CLYD:     {name:'Clydestone Ghana',   domain:'clydestoneghana.com',   color:'#00897B',fg:'#fff',skipClearbit:true},
+  CMLT:     {name:'Camelot Ghana',      domain:'camelotghana.com',      color:'#6A1B9A',fg:'#fff',skipClearbit:true},
+  DASPHARMA:{name:'Das Pharma',         domain:'daspharma.com.gh',      color:'#1565C0',fg:'#fff',skipClearbit:true},
+  DIGICUT:  {name:'Digicut Ltd',        domain:'digicut.com.gh',        color:'#E65100',fg:'#fff',skipClearbit:true},
+  MMH:      {name:'Meridian-Marshall',  domain:'meridianglobal.com',    color:'#37474F',fg:'#fff',skipClearbit:true},
+};
+
+/* ── COMPANY EMBLEMS: 3-tier fallback ──────────────────────────────
+   Stage 0 : Clearbit        (skip if co.skipClearbit)
+   Stage 1 : Google favicon  (128px, very reliable)
+   Stage 2+: Coloured initials (always works)
+────────────────────────────────────────────────────────────────── */
+function logoUrl(ticker,stage){
+  const co=CO[ticker];
+  if(!co||!co.domain) return null;
+  if(stage===0&&!co.skipClearbit) return 'https://logo.clearbit.com/'+co.domain;
+  if(stage<=1) return 'https://www.google.com/s2/favicons?domain='+co.domain+'&sz=128';
+  return null;
+}
+function embErr(img,ticker){
+  const stage=parseInt(img.dataset.stage||'0',10)+1;
+  const src=logoUrl(ticker,stage);
+  if(src){img.dataset.stage=stage;img.src=src;}
+  else{
+    img.style.display='none';
+    const fb=img.nextElementSibling;
+    if(fb){fb.style.display='flex';fb.style.alignItems='center';fb.style.justifyContent='center';}
+  }
+}
+function makeEmblem(ticker,size='md'){
+  const co=CO[ticker]||{};
+  const bg=co.color||'#334155';
+  const fg=co.fg||'#fff';
+  const ini=co.name
+    ?co.name.split(' ').slice(0,2).map(w=>w[0]).join('').toUpperCase().slice(0,2)
+    :(ticker||'?').slice(0,3);
+  const sz=size==='lg'?56:size==='sm'?20:32;
+  const fs=size==='lg'?15:size==='sm'?7:10;
+  const r=size==='lg'?14:size==='sm'?4:8;
+  const cls=size==='lg'?'emblem-lg':size==='sm'?'emblem-sm':'emblem';
+  const startStage=co.skipClearbit?1:0;
+  const url=logoUrl(ticker,startStage);
+  const fbStyle='display:none;width:'+sz+'px;height:'+sz+'px;border-radius:'+r+'px;background:'+bg+';color:'+fg+';font-size:'+fs+'px;font-weight:700;align-items:center;justify-content:center;font-family:Inter,sans-serif;flex-shrink:0;letter-spacing:-.5px';
+  if(url){
+    return'<img src="'+url+'" data-stage="'+startStage+'" class="'+cls+'" alt="'+ticker+'" title="'+(co.name||ticker)+'" onerror="embErr(this,''+ticker+'')" style="width:'+sz+'px;height:'+sz+'px;border-radius:'+r+'px;object-fit:contain;background:#fff;flex-shrink:0">'
+      +'<span class="'+cls+' emblem-fallback" style="'+fbStyle+'">'+ini+'</span>';
+  }
+  return'<span class="'+cls+' emblem-fallback" style="display:flex;'+fbStyle.replace('display:none;','')+'">'+ini+'</span>';
+}
+
+/* ── CORE ── */
+const UR=15;
+let cur='GHS',stocks=[],sf='volume',sd='desc',curT=null;
+const px=(g,dp)=>(cur==='USD'?'$':'₵')+(cur==='USD'?g/UR:g).toFixed(dp??2);
+const fv=n=>{n=parseFloat(n);return n>=1e6?(n/1e6).toFixed(2)+'M':n>=1e3?(n/1e3).toFixed(1)+'K':n.toLocaleString()};
+const a2p=(p,c)=>{const v=p-c;return v?(c/v*100):0};
+const fp=p=>(p>0?'+':'')+parseFloat(p).toFixed(2)+'%';
+const fc=c=>(c>0?'+':'')+parseFloat(c).toFixed(2);
+
+function toggleC(){
+  cur=cur==='GHS'?'USD':'GHS';
+  const lbl=cur==='GHS'?'GHS ₵':'USD $';
+  document.getElementById('cbtn').textContent=lbl;
+  document.getElementById('dcbtn').textContent=cur==='GHS'?'Switch to USD $':'Switch to GHS ₵';
+  renderM();renderTape();renderPortfolio();
+  if(curT)renderT(curT,equityCache[curT.ticker]||null);
+}
+
+const ALL39=[
+  {name:"AADS",price:0.42,change:0,volume:841},{name:"ACCESS",price:29,change:0,volume:1001},
+  {name:"ADB",price:5.3,change:0,volume:0},{name:"AGA",price:37,change:0,volume:0},
+  {name:"ALLGH",price:8.46,change:0,volume:434},{name:"ASG",price:8.89,change:0,volume:2},
+  {name:"BOPP",price:79.99,change:0,volume:0},{name:"CAL",price:0.77,change:0,volume:310013},
+  {name:"CLYD",price:2.5,change:0,volume:0},{name:"CMLT",price:0.14,change:0,volume:0},
+  {name:"CPC",price:0.13,change:0,volume:0},{name:"DASPHARMA",price:0.41,change:0,volume:0},
+  {name:"DIGICUT",price:0.09,change:0,volume:0},{name:"EGH",price:41,change:0,volume:284},
+  {name:"EGL",price:10.05,change:0,volume:9249},{name:"ETI",price:2.29,change:0.04,volume:76977},
+  {name:"FAB",price:8.4,change:0.43,volume:8309},{name:"FML",price:13.34,change:0,volume:202},
+  {name:"GCB",price:36,change:0,volume:11494},{name:"GGBL",price:12.99,change:0,volume:416},
+  {name:"GLD",price:462,change:-0.03,volume:2},{name:"GOIL",price:7.5,change:0,volume:2366},
+  {name:"HORDS",price:0.11,change:0,volume:103},{name:"IIL",price:0.08,change:0,volume:5108},
+  {name:"KASA",price:1.45,change:0.13,volume:2455},{name:"MAC",price:5.2,change:0,volume:0},
+  {name:"MMH",price:0.1,change:0,volume:0},{name:"MTNGH",price:6.42,change:-0.03,volume:488128},
+  {name:"RBGH",price:4.87,change:-0.13,volume:7893},{name:"SAMBA",price:0.55,change:0,volume:0},
+  {name:"SCB",price:71.38,change:0,volume:2},{name:"SCBPREF",price:0.9,change:0,volume:0},
+  {name:"SIC",price:5.18,change:0,volume:13084},{name:"SOGEGH",price:6.85,change:0.05,volume:9476},
+  {name:"TBL",price:1.2,change:0,volume:0},{name:"TLW",price:11.92,change:0,volume:60},
+  {name:"TOTAL",price:36.3,change:0,volume:1456},{name:"UNIL",price:29.5,change:0,volume:248},
+  {name:"ZEN",price:10,change:0,volume:40316}
+];
+
+/* ── GSE DATA: multi-proxy fetch with graceful fallback ── */
+const GSE_API='https://dev.kwayisi.org/apis/gse/live';
+const CORS_PROXIES=[
+  u=>`https://api.allorigins.win/get?url=${encodeURIComponent(u)}`,
+  u=>`https://corsproxy.io/?${encodeURIComponent(u)}`,
+  u=>`https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(u)}`,
+];
+
+async function safeFetch(url,timeout=10000){
+  const ctrl=new AbortController();
+  const timer=setTimeout(()=>ctrl.abort(),timeout);
+  try{
+    const r=await fetch(url,{signal:ctrl.signal});
+    clearTimeout(timer);
+    return r;
+  }catch(e){clearTimeout(timer);throw e;}
+}
+
+async function load(){
+  // Show loading state
+  document.getElementById('msub').textContent='Fetching live GSE data…';
+
+  // 1. Try direct fetch first
+  try{
+    const r=await safeFetch(GSE_API,8000);
+    if(r.ok){
+      const json=await r.json();
+      parse(json);
+      document.getElementById('msub').textContent=stocks.length+' equities · Live GSE data ✓';
+      return;
+    }
+  }catch(_){}
+
+  // 2. Try each CORS proxy
+  for(const proxyFn of CORS_PROXIES){
+    try{
+      const r=await safeFetch(proxyFn(GSE_API),10000);
+      if(!r.ok)continue;
+      const raw=await r.json();
+      // allorigins wraps in {contents:'...'}
+      const json=typeof raw.contents==='string'?JSON.parse(raw.contents):raw;
+      parse(json);
+      document.getElementById('msub').textContent=stocks.length+' equities · GSE data via proxy ✓';
+      return;
+    }catch(_){continue;}
+  }
+
+  // 3. All proxies failed → use built-in snapshot + show banner
+  parse(ALL39);
+  document.getElementById('msub').textContent=stocks.length+' equities · Offline snapshot (refresh to retry)';
+  showToast('⚠ Using cached data — live fetch failed','warning',5000);
+}
+function parse(raw){
+  stocks=(Array.isArray(raw)?raw:raw.data||[]).map(s=>{
+    const p=parseFloat(s.price??0),c=parseFloat(s.change??0);
+    return{ticker:(s.name||s.ticker||'').toUpperCase(),price:p,change:c,pct:a2p(p,c),volume:parseFloat(s.volume??0),prev:p-c};
+  });
+  renderM();renderTape();renderPortfolio();populateTickerSelect();
+}
+
+function renderTape(){
+  const sym=cur==='USD'?'$':'₵';
+  const items=stocks.map(s=>{
+    const u=s.change>0,d=s.change<0;
+    const p=cur==='USD'?(s.price/UR).toFixed(2):s.price.toFixed(2);
+    const c=cur==='USD'?(s.change/UR).toFixed(2):s.change.toFixed(2);
+    const cls=u?'tup':d?'tdn':'tfl',arr=u?'▲':d?'▼':'─';
+    return`<span class="titem" onclick="tapeClick('${s.ticker}')" style="gap:6px" title="${CO[s.ticker]?.name||s.ticker}">${makeEmblem(s.ticker,'sm')}<span class="tsym">${s.ticker}</span><span class="tpx">${sym}${p}</span><span class="${cls}">${arr}${u?'+':''}${c}</span></span>`;
+  });
+  document.getElementById('tape').innerHTML=[...items,...items].join('')||'<span class="titem"><span class="tfl">No data</span></span>';
+}
+
+function srt(f){
+  sf===f?sd=sd==='asc'?'desc':'asc':(sf=f,sd=f==='ticker'?'asc':'desc');
+  ['ticker','price','change','pct','volume'].forEach((k,i)=>{
+    const el=document.getElementById(['s-tk','s-pr','s-ch','s-pc','s-vo'][i]);
+    if(el)el.textContent=k===sf?(sd==='asc'?'▲':'▼'):'';
+  });
+  renderM();
+}
+
+function renderM(){
+  const g=stocks.filter(s=>s.change>0).length,l=stocks.filter(s=>s.change<0).length;
+  const u=stocks.filter(s=>s.change===0).length,v=stocks.reduce((a,s)=>a+s.volume,0);
+  document.getElementById('s-eq').textContent=stocks.length;
+  document.getElementById('s-gn').textContent=g;
+  document.getElementById('s-ls').textContent=l;
+  document.getElementById('s-vl').textContent=fv(v);
+  document.getElementById('msub').textContent=`${stocks.length} equities listed · Real GSE Live Data`;
+  document.getElementById('chips').innerHTML=
+    `<span class="chip cg">▲ ${g} Advancing</span>
+     <span class="chip cr">▼ ${l} Declining</span>
+     <span class="chip cd">─ ${u} Unchanged</span>`;
+  const q=(document.getElementById('sin').value||'').toUpperCase();
+  let list=stocks.filter(s=>s.ticker.includes(q));
+  list=[...list].sort((a,b)=>{const av=a[sf],bv=b[sf],c=typeof av==='string'?av.localeCompare(bv):av-bv;return sd==='asc'?c:-c;});
+  if(!list.length){document.getElementById('mtb').innerHTML=`<tr><td colspan="7" class="em">No tickers match "${q}"</td></tr>`;return;}
+  document.getElementById('mtb').innerHTML=list.map(s=>{
+    const u=s.change>0,d=s.change<0,col=u?'var(--green)':d?'var(--red)':'var(--muted)';
+    const fl=u?`<span class="chip cg">▲ BUY</span>`:d?`<span class="chip cr">▼ SELL</span>`:`<span class="chip cd">─ FLAT</span>`;
+    return`<tr class="rh" onclick="openT('${s.ticker}')">
+      <td class="t1"><div class="ticker-cell">${makeEmblem(s.ticker,'md')}<div><div style="font-weight:700">${s.ticker}</div><div style="font-size:9px;color:var(--dim);font-weight:400">${(CO[s.ticker]?.name||'').slice(0,18)}</div></div></div></td>
+      <td class="t2" style="font-size:13px">${px(s.price)}</td>
+      <td style="color:${col};font-weight:700">${u?'▲':d?'▼':'─'} ${px(Math.abs(s.change))}</td>
+      <td style="color:${col};font-weight:700">${fp(s.pct)}</td>
+      <td class="t3">${fv(s.volume)}</td>
+      <td class="t3 col-prev">${px(s.prev)}</td>
+      <td class="col-flow">${fl}</td>
+    </tr>`;
+  }).join('');
+}
+
+/* ── TICKER PROFILE + EQUITY API ── */
+const equityCache={};
+
+async function openT(sym){
+  curT=stocks.find(s=>s.ticker===sym);
+  if(!curT)return;
+  go('ticker');
+  document.getElementById('tc').innerHTML=`<div class="em" style="padding:60px"><i class="fa-solid fa-spinner fa-spin" style="font-size:28px;color:var(--amber);display:block;margin-bottom:14px"></i>Loading ${sym}…</div>`;
+  if(!equityCache[sym]){
+    const eqUrl=`https://dev.kwayisi.org/apis/gse/equities/${sym.toLowerCase()}`;
+    // Try direct then proxies
+    const attempts=[
+      ()=>safeFetch(eqUrl,8000),
+      ()=>safeFetch(CORS_PROXIES[0](eqUrl),10000).then(async r=>{
+            const raw=await r.json();
+            const txt=typeof raw.contents==='string'?raw.contents:JSON.stringify(raw);
+            return {ok:true,json:()=>JSON.parse(txt)};
+          }),
+      ()=>safeFetch(CORS_PROXIES[1](eqUrl),10000),
+    ];
+    for(const attempt of attempts){
+      try{
+        const r=await attempt();
+        if(r&&r.ok){equityCache[sym]=await r.json();break;}
+      }catch(_){continue;}
+    }
+  }
+  renderT(curT,equityCache[sym]||null);
+}
+
+function renderT(s,eq){
+  const u=s.change>0,d=s.change<0,dc=u?'var(--green)':d?'var(--red)':'var(--muted)';
+  const sym=cur==='USD'?'$':'₵';
+  const conv=v=>v==null?'—':sym+(cur==='USD'?v/UR:v).toFixed(2);
+  const convN=(v,dp=2)=>v==null?'—':sym+(cur==='USD'?v/UR:v).toFixed(dp);
+  const pts=genPts(s.price,s.change),path=buildPath(pts);
+  const mn=Math.min(...pts),mx=Math.max(...pts),toY=v=>90-((v-mn)/(mx-mn||1))*80,avgY=toY(s.price).toFixed(1);
+  const co=eq?.company||{};
+  const cap=eq?.capital,eps=eq?.eps,dps=eq?.dps,shares=eq?.shares;
+  const pe=(eps&&s.price)?(s.price/eps).toFixed(2):'—';
+  const mktCap=cap!=null?(cur==='USD'?'$'+(cap/UR/1e6).toFixed(2)+'M':'₵'+(cap/1e6).toFixed(2)+'M'):'—';
+  const dirRows=(co.directors||[]).map(d=>`<tr><td>${d.name}</td><td style="color:var(--muted)">${d.position||'Director'}</td></tr>`).join('')||`<tr><td colspan="2" style="color:var(--dim)">Not available</td></tr>`;
+
+  document.getElementById('tc').innerHTML=`
+    <div class="hero">
+      <div>
+        <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+          ${makeEmblem(s.ticker,'lg')}
+          <div>
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+          <span style="font-size:26px;font-weight:700;color:${dc}">${s.ticker}</span>
+          <span class="chip ${u?'cg':d?'cr':'cd'}">${u?'▲ ADVANCING':d?'▼ DECLINING':'─ UNCHANGED'}</span>
+          <span class="chip cb">GSE LIVE</span>
+        </div></div>
+        <div style="font-size:13px;font-weight:600;color:var(--text2);margin-top:5px">${co.name||s.ticker}</div>
+        <div style="font-size:11px;color:var(--dim);margin-top:3px">${co.industry||''}${co.industry&&co.sector?' · ':''}${co.sector||''}${(co.industry||co.sector)?' · ':''} Ghana Stock Exchange</div>
+      </div>
+      <div style="text-align:left;margin-top:10px">
+        <div style="font-size:30px;font-weight:800;color:var(--text);letter-spacing:-0.5px;font-family:'Inter',sans-serif">${conv(s.price)}</div>
+        <div style="font-size:14px;font-weight:700;color:${dc};margin-top:4px;font-family:'Inter',sans-serif">${u?'▲':d?'▼':'─'} ${sym}${Math.abs(cur==='USD'?s.change/UR:s.change).toFixed(2)} (${fp(s.pct)})</div>
+        <div style="font-size:10px;color:var(--dim);margin-top:4px;font-family:'JetBrains Mono',monospace">Prev Close: ${conv(s.prev)} &nbsp;|&nbsp; Vol: ${fv(s.volume)}</div>
+      </div>
+    </div>
+    <div class="mg">
+      <div class="sc"><div class="sl">Current Price <button class="info-btn" onclick="showTip(event,'PRICE')">?</button></div><div class="sv" style="color:${dc}">${conv(s.price)}</div></div>
+      <div class="sc"><div class="sl">Prev Close <button class="info-btn" onclick="showTip(event,'PREV_CLOSE')">?</button></div><div class="sv">${conv(s.prev)}</div></div>
+      <div class="sc"><div class="sl">Change <button class="info-btn" onclick="showTip(event,'CHANGE')">?</button></div><div class="sv" style="color:${dc}">${u?'+':''}${convN(s.change)}</div></div>
+      <div class="sc"><div class="sl">% Change <button class="info-btn" onclick="showTip(event,'PCT_CHANGE')">?</button></div><div class="sv" style="color:${dc}">${fp(s.pct)}</div></div>
+    </div>
+    <div class="mg">
+      <div class="sc"><div class="sl">Market Cap <button class="info-btn" onclick="showTip(event,'MARKET_CAP')">?</button></div><div class="sv" style="font-size:15px">${mktCap}</div></div>
+      <div class="sc"><div class="sl">Shares in Issue <button class="info-btn" onclick="showTip(event,'SHARES')">?</button></div><div class="sv" style="font-size:15px">${shares!=null?fv(shares):'—'}</div></div>
+      <div class="sc"><div class="sl">EPS <button class="info-btn" onclick="showTip(event,'EPS')">?</button></div><div class="sv g" style="font-size:15px">${eps!=null?convN(eps,4):'—'}</div></div>
+      <div class="sc"><div class="sl">DPS <button class="info-btn" onclick="showTip(event,'DPS')">?</button></div><div class="sv g" style="font-size:15px">${dps!=null?convN(dps,4):'—'}</div></div>
+    </div>
+    <div class="mg">
+      <div class="sc"><div class="sl">P/E Ratio <button class="info-btn" onclick="showTip(event,'PE')">?</button></div><div class="sv b" style="font-size:15px">${pe}</div></div>
+      <div class="sc"><div class="sl">Volume <button class="info-btn" onclick="showTip(event,'VOLUME')">?</button></div><div class="sv b" style="font-size:15px">${fv(s.volume)}</div></div>
+      <div class="sc"><div class="sl">Sector <button class="info-btn" onclick="showTip(event,'SECTOR')">?</button></div><div class="sv" style="font-size:13px;line-height:1.3">${co.sector||'—'}</div></div>
+      <div class="sc"><div class="sl">Industry <button class="info-btn" onclick="showTip(event,'INDUSTRY')">?</button></div><div class="sv" style="font-size:13px;line-height:1.3">${co.industry||'—'}</div></div>
+    </div>
+    <div class="chart-box">
+      <div style="font-size:11px;color:var(--muted);margin-bottom:10px;font-weight:600;display:flex;align-items:center;gap:6px">
+        <i class="fa-solid fa-chart-area"></i> Intraday Price Simulation — ${s.ticker}
+        <span style="font-size:9px;color:var(--dim);font-weight:400">(illustrative)</span>
+      </div>
+      <svg width="100%" height="130" viewBox="0 0 700 130" preserveAspectRatio="none" style="display:block">
+        <defs><linearGradient id="grd" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="${dc}" stop-opacity=".18"/><stop offset="100%" stop-color="${dc}" stop-opacity="0"/></linearGradient></defs>
+        <path d="${path} L700,130 L0,130 Z" fill="url(#grd)"/>
+        <path d="${path}" fill="none" stroke="${dc}" stroke-width="2.5"/>
+        <line x1="0" y1="${avgY}" x2="700" y2="${avgY}" stroke="#94a3b8" stroke-width="1" stroke-dasharray="5,4"/>
+        <text x="6" y="${Math.max(parseFloat(avgY)-5,14)}" font-size="9" fill="#94a3b8" font-family="monospace">avg ${conv(s.price)}</text>
+      </svg>
+    </div>
+    <div class="panel" style="margin-bottom:12px">
+      <div class="panel-hdr"><i class="fa-solid fa-table-list"></i> Key Statistics</div>
+      <div class="tbl-wrap"><table class="ftbl">
+        <tr><td>Ticker</td><td style="font-weight:700">${s.ticker}</td><td>Exchange</td><td>Ghana Stock Exchange</td></tr>
+        <tr><td>Company</td><td style="font-weight:700">${co.name||'—'}</td><td>Sector</td><td>${co.sector||'—'}</td></tr>
+        <tr><td>Industry</td><td>${co.industry||'—'}</td><td>Segment</td><td>Main Board</td></tr>
+        <tr><td>Last Price</td><td style="color:${dc};font-weight:700">${conv(s.price)}</td><td>Prev Close</td><td>${conv(s.prev)}</td></tr>
+        <tr><td>Change</td><td style="color:${dc};font-weight:700">${u?'+':''}${convN(s.change)} ${cur}</td><td>% Change</td><td style="color:${dc};font-weight:700">${fp(s.pct)}</td></tr>
+        <tr><td>Volume</td><td>${fv(s.volume)}</td><td>Shares Issued</td><td>${shares!=null?fv(shares):'—'}</td></tr>
+        <tr><td>Market Cap</td><td style="font-weight:700">${mktCap}</td><td>P/E Ratio</td><td style="font-weight:700">${pe}</td></tr>
+        <tr><td>EPS</td><td style="color:var(--green);font-weight:700">${eps!=null?convN(eps,4):'—'}</td><td>DPS</td><td style="color:var(--green);font-weight:700">${dps!=null?convN(dps,4):'—'}</td></tr>
+        <tr><td>Currency</td><td>${cur}</td><td>Status</td><td><span class="chip cg">LIVE</span></td></tr>
+      </table></div>
+    </div>
+    ${co.name?`<div class="panel" style="margin-bottom:12px">
+      <div class="panel-hdr"><i class="fa-solid fa-building"></i> Company Profile</div>
+      <div class="tbl-wrap"><table class="ftbl">
+        ${co.address?`<tr><td>Address</td><td colspan="3">${co.address}</td></tr>`:''}
+        ${co.telephone?`<tr><td>Telephone</td><td>${co.telephone}</td><td>Facsimile</td><td>${co.facsimile||'—'}</td></tr>`:''}
+        ${co.email?`<tr><td>Email</td><td><a href="mailto:${co.email}" style="color:var(--blue)">${co.email}</a></td><td>Website</td><td>${co.website?`<a href="https://${co.website}" target="_blank" style="color:var(--blue)">${co.website}</a>`:'—'}</td></tr>`:''}
+      </table></div>
+    </div>`:''}
+    ${(co.directors||[]).length?`<div class="panel" style="margin-bottom:12px">
+      <div class="panel-hdr"><i class="fa-solid fa-user-tie"></i> Board of Directors</div>
+      <div class="tbl-wrap"><table class="ftbl">
+        <thead><tr><th style="color:var(--muted);font-size:9px;padding:8px 12px;border-bottom:1.5px solid var(--border);background:var(--bg)">NAME</th><th style="color:var(--muted);font-size:9px;padding:8px 12px;border-bottom:1.5px solid var(--border);background:var(--bg)">POSITION</th></tr></thead>
+        <tbody>${dirRows}</tbody>
+      </table></div>
+    </div>`:''}
+    <div class="chat-box">
+      <div class="chat-hdr"><span class="ld"></span> ${s.ticker} · Trader Discussion <span style="margin-left:auto;font-size:9px;color:var(--dim);font-weight:400">Messages clear after 24h</span></div>
+      <div class="chat-msgs" id="cm-${s.ticker}">
+        ${(()=>{const saved=loadChat(s.ticker);if(saved)return saved;return`<div class="msg other"><span class="mh">TraderGh01</span><div class="mb">${s.ticker} volume looking active today — watching closely</div></div>
+        <div class="msg other"><span class="mh">GhanaInvestor</span><div class="mb">${conv(s.price)} is a key level. Any break above could trigger a rally</div></div>
+        <div class="msg own"><span class="mh">You</span><div class="mb">Momentum looks ${u?'bullish — holding long':'bearish — staying cautious'} near-term</div></div>`;})()}
+      </div>
+      <div class="chat-inp">
+        <span>You ›</span>
+        <input class="cin" id="cin" placeholder="Discuss ${s.ticker}…" onkeydown="if(event.key==='Enter')sc('${s.ticker}')">
+        <button class="sbtn" onclick="sc('${s.ticker}')">Send ➤</button>
+      </div>
+    </div>
+    ${buildShareholdersPanel(s.ticker)}
+    <div style="margin-top:12px;padding:14px;background:var(--green-bg);border:1.5px solid var(--green-border);border-radius:10px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
+      <div>
+        <div style="font-size:12px;font-weight:700;color:var(--green-dark)"><i class="fa-solid fa-briefcase"></i> Add ${s.ticker} to your Portfolio</div>
+        <div style="font-size:10px;color:var(--dim);margin-top:2px">Track your gains &amp; losses with DCA cost basis</div>
+      </div>
+      <button onclick="quickAddToPortfolio('${s.ticker}')" style="background:var(--green);border:none;border-radius:7px;color:#fff;padding:8px 18px;font-family:inherit;font-size:12px;font-weight:700;cursor:pointer"><i class="fa-solid fa-plus"></i> Add to Portfolio</button>
+    </div>`;
+}
+function genPts(p,c){const s=p-c;let v=s,a=[];for(let i=0;i<45;i++){v+=(Math.random()-.48)*p*.002;a.push(v);}a.push(p);return a;}
+function buildPath(pts){const mn=Math.min(...pts),mx=Math.max(...pts),ty=v=>90-((v-mn)/(mx-mn||1))*80,w=700/(pts.length-1);return pts.map((v,i)=>`${i===0?'M':'L'}${(i*w).toFixed(1)},${ty(v).toFixed(1)}`).join(' ');}
+function sc(t){
+  const i=document.getElementById('cin'),tx=i.value.trim();
+  if(!tx)return;i.value='';
+  const m=document.getElementById('cm-'+t);
+  const d=document.createElement('div');
+  d.className='msg own';
+  d.innerHTML=`<span class="mh">You</span><div class="mb">${tx}</div>`;
+  m.appendChild(d);m.scrollTop=m.scrollHeight;
+  // Persist chat messages (save HTML snapshot)
+  saveChat(t,m.innerHTML);
+}
+
+/* ── IPO ── */
+const IPOS=[
+  {tk:'ACDL',co:'African Continental Development Ltd',sec:'Real Estate',st:'ACTIVE',pr:0.95,lo:0.80,hi:1.10,sub:87.3,ov:false,cl:'2026-07-15',li:'2026-08-20',mn:'₵1,000'},
+  {tk:'GPHAREIT',co:'Ghana Pharma REIT',sec:'Healthcare REIT',st:'UPCOMING',pr:1.20,lo:1.10,hi:1.40,sub:22.1,ov:false,cl:'2026-09-01',li:'2026-10-05',mn:'₵2,000'},
+  {tk:'VRAB2025',co:'Volta River Authority Bond 2025',sec:'Utilities',st:'CLOSED',pr:2.50,lo:2.40,hi:2.60,sub:142.8,ov:true,cl:'2025-12-15',li:'2026-01-10',mn:'₵5,000'},
+];
+function renderIPO(){
+  document.getElementById('ipoc').innerHTML=IPOS.map(o=>{
+    const s2=o.st==='ACTIVE'?'cg':o.st==='UPCOMING'?'cy':'cd';
+    const bc=o.ov?'#d97706':o.sub>75?'#059669':o.sub>40?'#2563eb':'#64748b';
+    return`<div class="icard">
+      <div style="display:flex;justify-content:space-between;margin-bottom:10px;gap:10px;flex-wrap:wrap">
+        <div>
+          <div style="font-size:16px;font-weight:700;display:flex;align-items:center;gap:8px;flex-wrap:wrap">${o.tk}<span class="chip ${s2}">${o.st}</span></div>
+          <div style="font-size:11px;color:var(--dim);margin-top:3px">${o.co} · ${o.sec}</div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-size:14px;font-weight:700;color:var(--green)">₵${o.pr.toFixed(2)} indicative</div>
+          <div style="font-size:10px;color:var(--dim)">Range: ₵${o.lo} – ₵${o.hi}</div>
+          ${o.st==='ACTIVE'?`<div style="font-size:11px;color:var(--amber);font-weight:700;margin-top:3px">⏰ Closes ${o.cl}</div>`:''}
+        </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--dim);margin-bottom:5px;font-weight:600">
+        <span>Subscription Rate</span><span style="color:${bc}">${o.sub.toFixed(1)}%${o.ov?' (OVERSUBSCRIBED)':''}</span>
+      </div>
+      <div class="sub-bar-track"><div class="sub-bar-fill" style="width:${Math.min(100,o.sub)}%;background:${bc}"></div></div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
+        <div><div style="font-size:9px;color:var(--dim)">CLOSE DATE</div><div style="font-size:11px;font-weight:600;margin-top:2px">${o.cl}</div></div>
+        <div><div style="font-size:9px;color:var(--dim)">LISTING DATE</div><div style="font-size:11px;font-weight:600;margin-top:2px">${o.li}</div></div>
+        <div><div style="font-size:9px;color:var(--dim)">MIN SUB</div><div style="font-size:11px;font-weight:600;margin-top:2px">${o.mn}</div></div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+/* ── DIVIDENDS ── */
+const DIVS=[
+  {t:'MTNGH',co:'MTN Ghana',type:'INTERIM',dps:.052,y:3.88,ex:'2026-07-10',pay:'2026-08-01',up:true,days:24},
+  {t:'GCB',co:'Ghana Commercial Bank',type:'FINAL',dps:.42,y:6.77,ex:'2026-06-01',pay:'2026-06-30',up:false},
+  {t:'SCB',co:'Standard Chartered Ghana',type:'INTERIM',dps:1.8,y:8.0,ex:'2026-08-15',pay:'2026-09-05',up:true,days:60},
+  {t:'EGH',co:'Ecobank Ghana',type:'FINAL',dps:.38,y:4.15,ex:'2026-05-20',pay:'2026-06-15',up:false},
+  {t:'CAL',co:'CAL Bank',type:'INTERIM',dps:.045,y:5.23,ex:'2026-09-01',pay:'2026-09-20',up:true,days:77},
+  {t:'TOTAL',co:'Total Petroleum Ghana',type:'FINAL',dps:.28,y:8.19,ex:'2026-04-10',pay:'2026-05-01',up:false},
+  {t:'BOPP',co:'Benso Oil Palm Plantation',type:'FINAL',dps:.15,y:2.14,ex:'2026-03-15',pay:'2026-04-05',up:false},
+  {t:'GGBL',co:'Guinness Ghana Breweries',type:'INTERIM',dps:.09,y:4.62,ex:'2026-10-20',pay:'2026-11-10',up:false},
+];
+let dfil='ALL';
+function df(v,b){dfil=v;document.querySelectorAll('.fbtn').forEach(x=>x.classList.remove('on'));b.classList.add('on');renderDiv();}
+function renderDiv(){
+  const list=dfil==='ALL'?DIVS:dfil==='UPCOMING'?DIVS.filter(d=>d.up):DIVS.filter(d=>!d.up);
+  document.getElementById('dtb').innerHTML=list.map(d=>`<tr>
+    <td><div style="font-weight:700">${d.t}</div><div style="font-size:10px;color:var(--dim)">${d.co}</div></td>
+    <td><span class="chip ${d.type==='INTERIM'?'cb':'cg'}">${d.type}</span></td>
+    <td><div style="color:var(--green);font-weight:700">₵${d.dps.toFixed(4)}</div><div style="font-size:10px;color:var(--dim)">${d.y.toFixed(2)}% yield</div></td>
+    <td>${d.up?`<div style="color:var(--amber);font-weight:700">${d.ex}</div><div style="font-size:10px;color:var(--amber)">In ${d.days} days</div>`:`<div style="color:var(--muted)">${d.ex}</div>`}</td>
+    <td style="color:var(--muted)">${d.pay}</td>
+    <td><span class="chip ${d.up?'cy':'cd'}">${d.up?'UPCOMING':'PAID'}</span></td>
+  </tr>`).join('');
+}
+
+/* ── SHAREHOLDERS ── */
+const HD={
+  MTNGH:{co:'MTN Ghana Ltd',tot:'20.00B shares',as:'31 Dec 2024',hs:[
+    {r:1,n:'MTN Group International',t:'INSTITUTIONAL',p:49.98},{r:2,n:'Social Security & National Insurance Trust',t:'STATE',p:10.31},
+    {r:3,n:'Government of Ghana',t:'STATE',p:4.42},{r:4,n:'Stanbic Nominees Ghana Ltd',t:'INSTITUTIONAL',p:3.89},
+    {r:5,n:'BlackRock Fund Advisors',t:'INSTITUTIONAL',p:2.71},{r:6,n:'Databank Brokerage Ltd',t:'INSTITUTIONAL',p:1.94},
+    {r:7,n:'IC Securities Ghana Ltd',t:'INSTITUTIONAL',p:1.62},{r:8,n:'Vanguard Emerging Markets Fund',t:'FOREIGN',p:1.41},
+    {r:9,n:'National Pensions Regulatory Authority',t:'STATE',p:1.22},{r:10,n:'GCB Securities Ltd',t:'INSTITUTIONAL',p:0.98},
+  ]},
+  GCB:{co:'Ghana Commercial Bank Ltd',tot:'700.00M shares',as:'31 Dec 2024',hs:[
+    {r:1,n:'Social Security & National Insurance Trust',t:'STATE',p:21.36},{r:2,n:'Government of Ghana',t:'STATE',p:18.74},
+    {r:3,n:'Tema Oil Refinery',t:'STATE',p:8.42},{r:4,n:'Stanbic Nominees Ghana Ltd',t:'INSTITUTIONAL',p:5.81},
+    {r:5,n:'IC Securities Ghana Ltd',t:'INSTITUTIONAL',p:4.23},{r:6,n:'Databank Brokerage Ltd',t:'INSTITUTIONAL',p:3.76},
+    {r:7,n:'African Development Bank',t:'FOREIGN',p:2.94},{r:8,n:'Standard Chartered Nominees',t:'INSTITUTIONAL',p:2.41},
+    {r:9,n:'Ghana Investment Fund',t:'STATE',p:1.98},{r:10,n:'Enterprise Group Ltd',t:'INSIDER',p:1.52},
+  ]},
+};
+const TC={INSTITUTIONAL:'#1d4ed8',STATE:'#b45309',FOREIGN:'#7c3aed',INSIDER:'#059669',RETAIL:'#0891b2'};
+const TBG={INSTITUTIONAL:'#dbeafe',STATE:'#fef3c7',FOREIGN:'#ede9fe',INSIDER:'#d1fae5',RETAIL:'#cffafe'};
+function buildTabs(){document.getElementById('htabs').innerHTML=Object.keys(HD).map((t,i)=>`<button class="tsb${i===0?' on':''}" onclick="selH('${t}',this)">${t}</button>`).join('');}
+function selH(t,b){document.querySelectorAll('.tsb').forEach(x=>x.classList.remove('on'));b.classList.add('on');renderH(t);}
+function renderH(tk){
+  const d=HD[tk];if(!d)return;
+  document.getElementById('hpanel').innerHTML=`
+    <div class="panel" style="margin-bottom:10px">
+      <div class="panel-hdr" style="justify-content:space-between">
+        <div><strong>${tk}</strong> &nbsp;·&nbsp; <span style="color:var(--dim)">${d.co}</span></div>
+        <div style="font-size:10px;color:var(--dim)">${d.tot} &nbsp;·&nbsp; ${d.as}</div>
+      </div>
+    </div>
+    <div class="panel">${d.hs.map(h=>{const c=TC[h.t]||'#475569',bg=TBG[h.t]||'#f1f5f9';return`<div class="hrw">
+      <span class="hrank">${String(h.r).padStart(2,'0')}</span>
+      <span class="hname">${h.n}</span>
+      <span class="chip" style="font-size:8px;width:88px;text-align:center;background:${bg};color:${c};border:1px solid ${c}40;flex-shrink:0">${h.t}</span>
+      <div class="hbar"><div class="hbt"><div class="hbf" style="width:${Math.min(100,h.p*2)}%;background:${c}"></div></div></div>
+      <span class="hpct" style="color:${c}">${h.p.toFixed(2)}%</span>
+    </div>`;}).join('')}</div>`;
+}
+
+/* ── NEWS: Live AI-powered crawler ── */
+let liveNews=[];
+let newsCatFilter='ALL';
+let newsFetched=false;
+
+// RSS feeds — Ghana + International reputable sources (CORS via rss2json)
+const RSS_SOURCES=[
+  // ── Ghana Sources ──
+  {url:'https://thebftonline.com/feed/',src:'B&FT Online',domain:'thebftonline.com',flag:'🇬🇭'},
+  {url:'https://citibusinessnews.com/feed/',src:'Citi Business News',domain:'citibusinessnews.com',flag:'🇬🇭'},
+  {url:'https://gbusinessnews.com/feed/',src:'Ghana Business News',domain:'gbusinessnews.com',flag:'🇬🇭'},
+  {url:'https://graphic.com.gh/business/feed',src:'Graphic Business',domain:'graphic.com.gh',flag:'🇬🇭'},
+  {url:'https://ghanaweb.com/GhanaHomePage/business/index.rss',src:'GhanaWeb',domain:'ghanaweb.com',flag:'🇬🇭'},
+  {url:'https://www.myjoyonline.com/feed/',src:'Joy Business',domain:'myjoyonline.com',flag:'🇬🇭'},
+  // ── Africa / International ──
+  {url:'https://www.reuters.com/rssFeed/businessNews',src:'Reuters Business',domain:'reuters.com',flag:'🌍'},
+  {url:'https://feeds.bbci.co.uk/news/business/rss.xml',src:'BBC Business',domain:'bbc.com',flag:'🌍'},
+  {url:'https://www.ft.com/rss/home/uk',src:'Financial Times',domain:'ft.com',flag:'🌍'},
+  {url:'https://feeds.bloomberg.com/markets/news.rss',src:'Bloomberg Markets',domain:'bloomberg.com',flag:'🌍'},
+  {url:'https://africa.businessinsider.com/rss',src:'Business Insider Africa',domain:'africa.businessinsider.com',flag:'🌍'},
+  {url:'https://www.businessdayonline.com/feed/',src:'BusinessDay NG',domain:'businessdayonline.com',flag:'🌍'},
+  {url:'https://www.cnbcafrica.com/feed/',src:'CNBC Africa',domain:'cnbcafrica.com',flag:'🌍'},
+];
+
+const GSE_KW=['GSE','Ghana Stock Exchange','MTNGH','GCB','MTN Ghana','Ecobank','CAL Bank','Standard Chartered','SCB','EGH','GOIL','dividend','IPO','equity','shares','listed','stock market','GHS','Cedi','Bank of Ghana','SEC Ghana','brokerage','SSNIT','investor'];
+
+function classifyNews(title,desc){
+  const t=(title+' '+(desc||'')).toLowerCase();
+  if(/ipo|initial public|listing|subscription|book.?build/i.test(t))return{cat:'IPO',cls:'nI'};
+  if(/dividend|dps|per share|earnings|profit|revenue|q[1-4] 20|annual report|board approv/i.test(t))return{cat:'CORPORATE',cls:'nC'};
+  if(/bank of ghana|policy rate|inflation|monetary|sec ghana|regulation|guideline|budget|parliament|fed rate|interest rate|central bank/i.test(t))return{cat:'POLICY',cls:'nP'};
+  if(/africa|global|dollar|cedi|forex|usd|exchange rate|imf|world bank|commodity|oil price|gold|crude|bitcoin|crypto/i.test(t))return{cat:'GLOBAL',cls:'nG'};
+  if(/gse|ghana stock|index|trading|volume|market|equity|shares|bourse|wall street|nasdaq|nyse|ftse/i.test(t))return{cat:'MARKET',cls:'nM'};
+  if(/tech|ai|artificial intelligence|startup|innovation|fintech|mobile money/i.test(t))return{cat:'TECH',cls:'nT'};
+  return{cat:'BUSINESS',cls:'nB'};
+}
+
+function isRelevant(title,desc){
+  // Accept all news — Ghana + international business/finance
+  if(!title||title.length<8) return false;
+  // Block pure sports/entertainment noise
+  const noise=/(soccer|football|cricket|nba|nfl|celebrity|gossip|movie|music|fashion|recipe|travel|covid vaccine|horoscope)/i;
+  return !noise.test(title+' '+(desc||''));
+}
+
+function timeAgo(dateStr){
+  const d=new Date(dateStr);if(isNaN(d))return'';
+  const diff=Math.floor((Date.now()-d)/1000);
+  if(diff<60)return'just now';
+  if(diff<3600)return Math.floor(diff/60)+'m ago';
+  if(diff<86400)return Math.floor(diff/3600)+'h ago';
+  if(diff<604800)return Math.floor(diff/86400)+'d ago';
+  return d.toLocaleDateString('en-GB',{day:'numeric',month:'short'});
+}
+
+function findRelTickers(title,desc){
+  const t=(title+' '+(desc||'')).toUpperCase();
+  const found=Object.keys(CO).filter(tk=>t.includes(tk)||t.includes((CO[tk]?.name||'').toUpperCase()));
+  return found.slice(0,4).join(', ')||'Ghana Market';
+}
+
+/* ── RSS fetch: 2 proxy fallbacks, proper timeout, item normaliser ── */
+const RSS_PROXY_FNS=[
+  url=>`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(url)}&count=25&api_key=`,
+  url=>`https://api.allorigins.win/get?url=${encodeURIComponent('https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent(url)+'&count=25')}`,
+];
+
+function normaliseItems(data,source){
+  // Handle both rss2json direct and allorigins-wrapped responses
+  let items=[];
+  if(data&&data.items) items=data.items;
+  else if(data&&data.contents){
+    try{const p=JSON.parse(data.contents);items=p.items||[];}catch(_){}
+  }
+  return items.map(item=>({
+    title:(item.title||'').replace(/<[^>]+>/g,'').trim(),
+    desc:(item.description||item.content||'').replace(/<[^>]+>/g,'').slice(0,300),
+    url:item.link||item.url||'https://'+source.domain,
+    pubDate:item.pubDate||item.published||'',
+    src:source.src,
+    domain:source.domain,
+    flag:source.flag||'',
+  }));
+}
+
+async function fetchRSS(source){
+  for(const proxyFn of RSS_PROXY_FNS){
+    try{
+      const r=await safeFetch(proxyFn(source.url),12000);
+      if(!r.ok)continue;
+      const data=await r.json();
+      const items=normaliseItems(data,source);
+      if(items.length>0)return items;
+    }catch(_){continue;}
+  }
+  return []; // return empty rather than throw — Promise.allSettled handles it
+}
+
+async function fetchLiveNews(){
+  const feed=document.getElementById('newsfeed');
+  const btn=document.getElementById('news-refresh-btn');
+  if(btn){btn.innerHTML='<i class="fa-solid fa-spinner fa-spin"></i> Fetching…';btn.disabled=true;}
+  feed.innerHTML=`<div class="em" style="padding:40px">
+    <i class="fa-solid fa-spinner fa-spin" style="font-size:28px;color:var(--amber);display:block;margin-bottom:14px"></i>
+    <div style="font-weight:700;margin-bottom:6px">Loading news…</div>
+    <div style="font-size:11px;color:var(--dim)">Fetching from ${RSS_SOURCES.length} sources</div>
+  </div>`;
+
+  // Fetch all sources concurrently — each already handles its own retries
+  const results=await Promise.allSettled(RSS_SOURCES.map(fetchRSS));
+  let allItems=[];
+  results.forEach(r=>{
+    if(r.status==='fulfilled'&&Array.isArray(r.value))allItems.push(...r.value);
+  });
+
+  // Dedupe, filter noise, sort newest first
+  const seen=new Set();
+  allItems=allItems
+    .filter(it=>{
+      if(!it.title||it.title.length<8)return false;
+      const key=it.title.slice(0,60).toLowerCase();
+      if(seen.has(key))return false;
+      seen.add(key);
+      return isRelevant(it.title,it.desc);
+    })
+    .sort((a,b)=>new Date(b.pubDate)-new Date(a.pubDate))
+    .slice(0,60)
+    .map(it=>{
+      const{cat,cls}=classifyNews(it.title,it.desc);
+      const rel=findRelTickers(it.title,it.desc);
+      return{...it,cat,cls,rel,timeAgo:timeAgo(it.pubDate)};
+    });
+
+  // If we got very few items, show a helpful message
+  if(allItems.length<3){
+    // Try one more time with a small delay
+    await new Promise(r=>setTimeout(r,2000));
+    const retry=await Promise.allSettled(RSS_SOURCES.slice(0,4).map(fetchRSS));
+    retry.forEach(r=>{if(r.status==='fulfilled')allItems.push(...r.value);});
+  }
+
+  liveNews=allItems;
+  newsFetched=true;
+  const now=new Date();
+  const pad=n=>String(n).padStart(2,'0');
+  const updated=`${pad(now.getHours())}:${pad(now.getMinutes())}`;
+  document.getElementById('news-updated').textContent=updated;
+  renderNews();
+  if(btn){btn.innerHTML='<i class="fa-solid fa-rotate-right"></i> Refresh';btn.disabled=false;}
+  if(allItems.length>0){
+    showToast(`📰 ${allItems.length} articles loaded`,'success',3000);
+  }else{
+    showToast('⚠ News fetch failed — check connection','warning',5000);
+  }
+}
+
+/* ── News auto-refresh every 15 minutes ── */
+setInterval(()=>{
+  if(document.getElementById('pg-news')?.classList.contains('on')){
+    fetchLiveNews();
+  }
+},15*60*1000);
+
+function newsFilter(cat,btn){
+  newsCatFilter=cat;
+  document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('on'));
+  if(btn)btn.classList.add('on');
+  renderNews();
+}
+
+function renderNews(){
+  const feed=document.getElementById('newsfeed');
+  let list=newsCatFilter==='ALL'?liveNews:liveNews.filter(n=>n.cat===newsCatFilter);
+
+  const alerts=liveNews.filter(n=>n.cat==='POLICY'||n.cat==='IPO').length;
+  document.getElementById('news-count').textContent=liveNews.length||'—';
+  document.getElementById('news-alerts').textContent=alerts||'—';
+
+  if(!liveNews.length){
+    feed.innerHTML=`<div class="em" style="padding:40px">
+      <i class="fa-solid fa-satellite-dish" style="font-size:32px;color:#cbd5e1;display:block;margin-bottom:12px"></i>
+      <div style="font-size:14px;font-weight:700;margin-bottom:6px">No news loaded yet</div>
+      <div style="margin-bottom:16px">Click <strong>Refresh</strong> to crawl live Ghana financial news</div>
+      <button onclick="fetchLiveNews()" style="font-family:inherit;font-size:12px;padding:8px 20px;border-radius:7px;border:1.5px solid var(--green-border);background:var(--green-bg);color:var(--green-dark);cursor:pointer;font-weight:700"><i class="fa-solid fa-rotate-right"></i> Load News Now</button>
+    </div>`;
+    return;
+  }
+  if(!list.length){
+    feed.innerHTML=`<div class="em" style="padding:30px">No ${newsCatFilter} stories found in current feed</div>`;
+    return;
+  }
+  feed.innerHTML=list.map(n=>{
+    const flag=RSS_SOURCES.find(s=>s.src===n.src)?.flag||'';
+    const hasUrl=n.url&&n.url!=='#';
+    return`<a class="ncard" ${hasUrl?`href="${n.url}" target="_blank" rel="noopener noreferrer"`:''}
+      style="cursor:${hasUrl?'pointer':'default'};text-decoration:none;display:flex;gap:12px;align-items:flex-start;">
+      <span class="nbadge ${n.cls}" style="flex-shrink:0;margin-top:2px">${n.cat}</span>
+      <div style="flex:1;min-width:0">
+        <div class="ntit" style="color:var(--text)">${n.title}</div>
+        <div class="nmeta" style="margin-top:5px">
+          <span class="nsrc">${flag} ${n.src}</span>
+          <span style="color:var(--dim)">${n.timeAgo}</span>
+          ${n.rel&&n.rel!=='Ghana Market'?`<span class="nrel">${n.rel}</span>`:''}
+        </div>
+      </div>
+      ${hasUrl?`<i class="fa-solid fa-arrow-up-right-from-square" style="font-size:10px;color:var(--dim);flex-shrink:0;margin-top:4px"></i>`:''}
+    </a>`;
+  }).join('');
+}
+
+/* ── SHAREHOLDERS PANEL (shown inside ticker profile) ── */
+function buildShareholdersPanel(tk){
+  const d=HD[tk];
+  if(!d)return'';
+  const rows=d.hs.map(h=>{
+    const c=TC[h.t]||'#475569',bg=TBG[h.t]||'#f1f5f9';
+    return`<div class="hrw">
+      <span class="hrank">${String(h.r).padStart(2,'0')}</span>
+      <span class="hname">${h.n}</span>
+      <span class="chip" style="font-size:8px;width:88px;text-align:center;background:${bg};color:${c};border:1px solid ${c}40;flex-shrink:0">${h.t}</span>
+      <div class="hbar"><div class="hbt"><div class="hbf" style="width:${Math.min(100,h.p*2)}%;background:${c}"></div></div></div>
+      <span class="hpct" style="color:${c}">${h.p.toFixed(2)}%</span>
+    </div>`;
+  }).join('');
+  return`<div class="shr-section">
+    <div class="panel">
+      <div class="panel-hdr" style="justify-content:space-between;flex-wrap:wrap;gap:6px">
+        <div style="display:flex;align-items:center;gap:6px"><i class="fa-solid fa-users" style="color:var(--blue)"></i> <strong>Top Shareholders</strong> &nbsp;·&nbsp; <span style="color:var(--dim)">${d.co}</span></div>
+        <div style="font-size:10px;color:var(--dim)">${d.tot} &nbsp;·&nbsp; As at ${d.as}</div>
+      </div>
+      ${rows}
+    </div>
+  </div>`;
+}
+
+/* ── PORTFOLIO ── */
+let portfolio=JSON.parse(localStorage.getItem('gse_portfolio')||'[]');
+
+function savePortfolio(){localStorage.setItem('gse_portfolio',JSON.stringify(portfolio));}
+
+function populateTickerSelect(){
+  const sel=document.getElementById('pf-ticker');
+  if(!sel)return;
+  const tks=stocks.length?stocks.map(s=>s.ticker).sort():(Object.keys(CO)).sort();
+  sel.innerHTML='<option value="">— Select Ticker —</option>'+tks.map(t=>`<option value="${t}">${t}${CO[t]?' – '+CO[t].name:''}</option>`).join('');
+}
+
+function addPortfolioStock(){
+  const tk=(document.getElementById('pf-ticker').value||'').trim().toUpperCase();
+  const qty=parseFloat(document.getElementById('pf-qty').value);
+  const cost=parseFloat(document.getElementById('pf-cost').value);
+  const lbl=(document.getElementById('pf-label').value||'').trim();
+  const err=document.getElementById('pf-err');
+  if(!tk){err.style.display='block';err.textContent='Please select a ticker.';return;}
+  if(!qty||qty<1){err.style.display='block';err.textContent='Please enter a valid number of shares.';return;}
+  if(!cost||cost<=0){err.style.display='block';err.textContent='Please enter your average buy price (DCA).';return;}
+  err.style.display='none';
+  // Allow multiple entries per ticker (different DCA lots)
+  portfolio.push({id:Date.now(),ticker:tk,qty,cost,label:lbl,added:new Date().toISOString().slice(0,10)});
+  savePortfolio();
+  document.getElementById('pf-ticker').value='';
+  document.getElementById('pf-qty').value='';
+  document.getElementById('pf-cost').value='';
+  document.getElementById('pf-label').value='';
+  renderPortfolio();
+}
+
+function removePortfolioItem(id){
+  portfolio=portfolio.filter(p=>p.id!==id);
+  savePortfolio();
+  renderPortfolio();
+}
+
+function quickAddToPortfolio(tk){
+  go('portfolio');
+  setTimeout(()=>{
+    const sel=document.getElementById('pf-ticker');
+    if(sel){sel.value=tk;}
+    document.getElementById('pf-qty').focus();
+  },100);
+}
+
+function renderPortfolio(){
+  populateTickerSelect();
+  const empty=document.getElementById('port-empty');
+  const hold=document.getElementById('port-holdings');
+  const sumBox=document.getElementById('port-summary-box');
+  if(!portfolio.length){
+    if(empty)empty.style.display='block';
+    if(sumBox)sumBox.style.display='none';
+    hold.innerHTML='<div class="port-empty" id="port-empty"><i class="fa-solid fa-briefcase"></i><div style="font-size:14px;font-weight:700;margin-bottom:6px">No holdings yet</div><div>Add your first stock above to start tracking your portfolio</div></div>';
+    return;
+  }
+  if(sumBox)sumBox.style.display='block';
+
+  // Group by ticker for summary, but show individual lots
+  let totalVal=0,totalCost=0;
+  const sym=cur==='USD'?'$':'₵';
+  const conv2=v=>sym+(cur==='USD'?v/UR:v).toFixed(2);
+
+  const cards=portfolio.map(p=>{
+    const stock=stocks.find(s=>s.ticker===p.ticker);
+    const livePrice=stock?stock.price:null;
+    const mktVal=livePrice!=null?livePrice*p.qty:null;
+    const totalBought=p.cost*p.qty;
+    const gl=mktVal!=null?mktVal-totalBought:null;
+    const glPct=gl!=null?(gl/totalBought*100):null;
+    if(mktVal!=null)totalVal+=mktVal;
+    totalCost+=totalBought;
+
+    const glClass=gl==null?'flat':gl>0?'gain':gl<0?'loss':'flat';
+    const glArrow=gl==null?'─':gl>0?'▲':gl<0?'▼':'─';
+    const glStr=gl==null?'Live price unavailable':`${glArrow} ${conv2(Math.abs(gl))} (${gl>=0?'+':''}${glPct.toFixed(2)}%)`;
+    const mktValStr=mktVal!=null?conv2(cur==='USD'?mktVal/UR:mktVal):conv2(totalBought);
+
+    return`<div class="port-card">
+      <div class="port-card-hdr">
+        <div class="port-card-left">
+          ${makeEmblem(p.ticker,'md')}
+          <div class="port-card-info">
+            <div class="port-card-name">${p.ticker}</div>
+            <div class="port-card-sub">${CO[p.ticker]?.name||p.ticker}${p.label?' · <em>'+p.label+'</em>':''}</div>
+          </div>
+        </div>
+        <div class="port-card-right">
+          <div class="port-mval">${mktValStr}</div>
+          <div class="port-gl ${glClass}">${glStr}</div>
+        </div>
+      </div>
+      <div class="port-card-body">
+        <div class="port-stat"><div class="port-stat-l">Shares</div><div class="port-stat-v">${p.qty.toLocaleString()}</div></div>
+        <div class="port-stat"><div class="port-stat-l">Avg Buy (DCA)</div><div class="port-stat-v">${conv2(p.cost)}</div></div>
+        <div class="port-stat"><div class="port-stat-l">Live Price</div><div class="port-stat-v" style="color:${livePrice!=null?(stock.change>0?'var(--green)':stock.change<0?'var(--red)':'var(--text2)'):'var(--dim)'}">${livePrice!=null?conv2(livePrice):'—'}</div></div>
+        <div class="port-stat"><div class="port-stat-l">Total Cost</div><div class="port-stat-v">${conv2(totalBought)}</div></div>
+      </div>
+      <div class="dca-row">
+        <span class="dca-tag"><i class="fa-solid fa-layer-group"></i> DCA @ ${conv2(p.cost)}</span>
+        <span class="dca-tag" style="background:#ede9fe;color:#5b21b6;border-color:#c4b5fd"><i class="fa-solid fa-calendar-days"></i> Added ${p.added}</span>
+        ${livePrice!=null&&gl!=null?`<span class="chip ${gl>=0?'cg':'cr'}">${gl>=0?'▲ IN PROFIT':'▼ AT LOSS'}</span>`:''}
+        <button class="del-btn" onclick="removePortfolioItem(${p.id})"><i class="fa-solid fa-trash"></i> Remove</button>
+      </div>
+    </div>`;
+  }).join('');
+
+  // Portfolio summary
+  const totalGl=totalVal-totalCost;
+  const totalGlPct=totalCost>0?(totalGl/totalCost*100):0;
+  const glC=totalGl>0?'var(--green)':totalGl<0?'var(--red)':'var(--muted)';
+  document.getElementById('ps-val').textContent=conv2(cur==='USD'?totalVal/UR:totalVal);
+  document.getElementById('ps-val').style.color='var(--blue)';
+  document.getElementById('ps-cost').textContent=conv2(cur==='USD'?totalCost/UR:totalCost);
+  document.getElementById('ps-gl').textContent=(totalGl>=0?'+':'')+conv2(cur==='USD'?totalGl/UR:totalGl);
+  document.getElementById('ps-gl').style.color=glC;
+  document.getElementById('ps-pct').textContent=(totalGlPct>=0?'+':'')+totalGlPct.toFixed(2)+'%';
+  document.getElementById('ps-pct').style.color=glC;
+
+  hold.innerHTML=cards;
+}
+
+/* ── MARKET CLOCK (GSE: 10:00–15:00 Africa/Accra = UTC) ── */
+function updateMarketClock(){
+  // Africa/Accra is UTC+0 all year (no DST)
+  const now=new Date();
+  const utcH=now.getUTCHours(),utcM=now.getUTCMinutes(),utcS=now.getUTCSeconds();
+  const totalMin=utcH*60+utcM;
+  const openMin=10*60,closeMin=15*60;
+  const isOpen=totalMin>=openMin&&totalMin<closeMin;
+  const isWeekend=now.getUTCDay()===0||now.getUTCDay()===6;
+
+  const dot=document.getElementById('mkt-dot');
+  const label=document.getElementById('mkt-label');
+  const timeEl=document.getElementById('mkt-time');
+  const countdown=document.getElementById('mkt-countdown');
+  const alertEl=document.getElementById('mkt-alert');
+
+  // Format Accra time
+  const pad=n=>String(n).padStart(2,'0');
+  const timeStr=`${pad(utcH)}:${pad(utcM)}:${pad(utcS)} GMT (Accra)`;
+  timeEl.textContent=timeStr;
+
+  function fmtDur(mins,secs){
+    const h=Math.floor(mins/60),m=mins%60;
+    return h>0?`${h}h ${pad(m)}m ${pad(secs)}s`:`${pad(m)}m ${pad(secs)}s`;
+  }
+
+  if(isWeekend){
+    dot.className='mkt-dot closed';
+    label.textContent='GSE CLOSED — WEEKEND';
+    countdown.textContent='';
+    alertEl.style.display='none';
+    return;
+  }
+
+  if(!isOpen&&totalMin<openMin){
+    // Before open
+    const diffSec=(openMin*60)-(utcH*3600+utcM*60+utcS);
+    const diffMin=Math.floor(diffSec/60),remSec=diffSec%60;
+    dot.className='mkt-dot pre';
+    label.textContent='PRE-MARKET';
+    countdown.textContent=`Opens in ${fmtDur(diffMin,remSec)}`;
+    alertEl.style.display='none';
+  } else if(isOpen){
+    const diffSec=(closeMin*60)-(utcH*3600+utcM*60+utcS);
+    const diffMin=Math.floor(diffSec/60),remSec=diffSec%60;
+    dot.className='mkt-dot open';
+    label.textContent='GSE OPEN';
+    countdown.textContent=`Closes in ${fmtDur(diffMin,remSec)}`;
+    // Alert if within 2 hours of close (120 min)
+    alertEl.style.display=diffMin<=120?'inline-block':'none';
+  } else {
+    dot.className='mkt-dot closed';
+    label.textContent='GSE CLOSED';
+    countdown.textContent='Market opens tomorrow at 10:00 AM';
+    alertEl.style.display='none';
+  }
+}
+setInterval(updateMarketClock,1000);
+updateMarketClock();
+
+/* ── BOOT ── */
+load();renderIPO();renderDiv();buildTabs();renderH('MTNGH');renderPortfolio();
+// Retry load on reconnect
+window.addEventListener('online',()=>{load();showToast('🌐 Back online — refreshing data','success');});
+</script>
+
+<!-- Floating WhatsApp Button -->
+<button id="float-contact" onclick="openContact()" title="Contact us on WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+  <span class="float-badge">1</span>
+</button>
+
+<script>
+/* ── CONTACT MODAL ── */
+function openContact(){
+  const m=document.getElementById('contact-modal');
+  m.style.display='flex';
+  setTimeout(()=>m.classList.add('open'),10);
+}
+function closeContact(){
+  const m=document.getElementById('contact-modal');
+  m.classList.remove('open');
+  setTimeout(()=>m.style.display='none',200);
+}
+document.getElementById('contact-modal').addEventListener('click',function(e){
+  if(e.target===this)closeContact();
+});
+
+/* ── ANIMATED NUMBER COUNTERS on market stats ── */
+function animateValue(el,start,end,duration,prefix='',suffix=''){
+  if(!el)return;
+  const range=end-start,startTime=performance.now();
+  function update(now){
+    const elapsed=now-startTime,progress=Math.min(elapsed/duration,1);
+    const ease=1-Math.pow(1-progress,3); // cubic ease out
+    el.textContent=prefix+Math.round(start+range*ease).toLocaleString()+suffix;
+    if(progress<1)requestAnimationFrame(update);
+  }
+  requestAnimationFrame(update);
+}
+
+/* ── ENTRANCE ANIMATIONS for stat cards ── */
+function animateCards(){
+  document.querySelectorAll('.sc').forEach((card,i)=>{
+    card.style.opacity='0';
+    card.style.transform='translateY(16px)';
+    setTimeout(()=>{
+      card.style.transition='opacity .4s ease, transform .4s ease';
+      card.style.opacity='1';
+      card.style.transform='translateY(0)';
+    }, i*60);
+  });
+}
+
+/* ── PAGE CHANGE: animate cards on every nav ── */
+const _origGo=window.go;
+window.go=function(n){
+  _origGo(n);
+  setTimeout(animateCards,50);
+};
+
+/* ── RIPPLE EFFECT on buttons ── */
+document.addEventListener('click',function(e){
+  const btn=e.target.closest('button,tr.rh,.nb,.ditem,.fbtn');
+  if(!btn)return;
+  const rect=btn.getBoundingClientRect();
+  const ripple=document.createElement('span');
+  const size=Math.max(rect.width,rect.height);
+  ripple.style.cssText=`position:absolute;border-radius:50%;background:rgba(255,255,255,.35);
+    width:${size}px;height:${size}px;
+    left:${e.clientX-rect.left-size/2}px;top:${e.clientY-rect.top-size/2}px;
+    transform:scale(0);animation:ripple-anim .5s linear;pointer-events:none;z-index:99`;
+  const prevPos=btn.style.position;
+  btn.style.position='relative';
+  btn.style.overflow='hidden';
+  btn.appendChild(ripple);
+  setTimeout(()=>{ripple.remove();if(!prevPos)btn.style.position='';},600);
+});
+
+/* Ripple animation */
+const rippleStyle=document.createElement('style');
+rippleStyle.textContent=`@keyframes ripple-anim{to{transform:scale(2.5);opacity:0}}`;
+document.head.appendChild(rippleStyle);
+
+/* ── SCROLL-REVEAL for news cards ── */
+function revealOnScroll(){
+  const cards=document.querySelectorAll('.ncard:not(.revealed)');
+  cards.forEach(card=>{
+    const rect=card.getBoundingClientRect();
+    if(rect.top<window.innerHeight-40){
+      card.classList.add('revealed');
+      card.style.animation='slideUp .35s ease forwards';
+    }
+  });
+}
+window.addEventListener('scroll',revealOnScroll,{passive:true});
+
+/* ── LIVE CLOCK pulse on topbar ── */
+function pulseTape(){
+  const tape=document.querySelector('.tape-wrap');
+  if(tape){
+    tape.style.filter='brightness(1.15)';
+    setTimeout(()=>tape.style.filter='',300);
+  }
+}
+setInterval(pulseTape,10000);
+
+/* ── TOAST NOTIFICATION system ── */
+function showToast(msg,type='info',duration=3500){
+  const colors={info:'#2563eb',success:'#059669',warning:'#d97706',error:'#dc2626'};
+  const toast=document.createElement('div');
+  toast.style.cssText=`
+    position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(20px);
+    background:#0f172a;color:#f1f5f9;padding:12px 20px;border-radius:10px;
+    font-family:Inter,sans-serif;font-size:13px;font-weight:600;
+    border-left:4px solid ${colors[type]||colors.info};
+    box-shadow:0 8px 32px rgba(0,0,0,.4);z-index:99999;
+    opacity:0;transition:all .3s ease;white-space:nowrap;max-width:90vw;
+  `;
+  toast.textContent=msg;
+  document.body.appendChild(toast);
+  setTimeout(()=>{toast.style.opacity='1';toast.style.transform='translateX(-50%) translateY(0)'},10);
+  setTimeout(()=>{toast.style.opacity='0';toast.style.transform='translateX(-50%) translateY(10px)';setTimeout(()=>toast.remove(),300)},duration);
+}
+
+/* ── WELCOME TOAST on load ── */
+window.addEventListener('load',()=>{
+  setTimeout(()=>showToast('📈 GSE Terminal loaded · Live data active','success'),1200);
+  animateCards();
+  // Hide float badge after 5s
+  setTimeout(()=>{const b=document.querySelector('.float-badge');if(b)b.style.display='none';},5000);
+});
+
+/* ── NETWORK status toast ── */
+window.addEventListener('online',()=>showToast('✅ Back online','success'));
+window.addEventListener('offline',()=>showToast('⚠ No internet connection','warning',6000));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,4 @@
+-keepattributes JavascriptInterface
+-keepclassmembers class com.gseterminal.app.WebAppInterface { public *; }
+-keep class androidx.webkit.** { *; }
+-dontwarn kotlin.**
