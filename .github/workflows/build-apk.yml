@@ -28,10 +28,20 @@ jobs:
 
       - name: Download Gradle wrapper jar
         run: |
-          curl -sL \
-            "https://github.com/gradle/gradle/raw/v8.7.0/gradle/wrapper/gradle-wrapper.jar" \
+          curl -L --retry 3 \
+            "https://services.gradle.org/distributions/gradle-8.7-bin.zip" \
+            -o /tmp/gradle.zip
+          unzip -p /tmp/gradle.zip \
+            "gradle-8.7/lib/plugins/gradle-tooling-api-8.7.jar" > /dev/null 2>&1 || true
+          find /tmp -name "gradle-wrapper-*.jar" 2>/dev/null | head -1 | \
+            xargs -I{} cp {} gradle/wrapper/gradle-wrapper.jar 2>/dev/null || \
+          curl -L --retry 3 \
+            "https://repo1.maven.org/maven2/org/gradle/gradle-wrapper/8.7/gradle-wrapper-8.7.jar" \
+            -o gradle/wrapper/gradle-wrapper.jar || \
+          curl -L --retry 3 \
+            "https://jcenter.bintray.com/org/gradle/gradle-wrapper/8.7/gradle-wrapper-8.7.jar" \
             -o gradle/wrapper/gradle-wrapper.jar
-
+          ls -lh gradle/wrapper/gradle-wrapper.jar
       - name: Make gradlew executable
         run: chmod +x gradlew
 
