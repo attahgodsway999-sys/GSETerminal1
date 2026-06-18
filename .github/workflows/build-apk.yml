@@ -22,11 +22,25 @@ jobs:
           unzip -q /tmp/gradle-8.7-bin.zip -d /opt
           echo "/opt/gradle-8.7/bin" >> $GITHUB_PATH
 
-      - name: Write all project files
+      - name: Create all directories first
+        run: |
+          mkdir -p app/src/main/java/com/gseterminal/app
+          mkdir -p app/src/main/res/layout
+          mkdir -p app/src/main/res/values
+          mkdir -p app/src/main/res/xml
+          mkdir -p app/src/main/res/mipmap-mdpi
+          mkdir -p app/src/main/res/mipmap-hdpi
+          mkdir -p app/src/main/res/mipmap-xhdpi
+          mkdir -p app/src/main/res/mipmap-xxhdpi
+          mkdir -p app/src/main/res/mipmap-xxxhdpi
+          mkdir -p app/src/main/assets
+          mkdir -p gradle/wrapper
+          echo "✅ All directories created"
+
+      - name: Write Gradle files
         run: |
           echo "sdk.dir=$ANDROID_SDK_ROOT" > local.properties
 
-          mkdir -p gradle/wrapper
           cat > gradle/wrapper/gradle-wrapper.properties << 'EOF'
           distributionBase=GRADLE_USER_HOME
           distributionPath=wrapper/dists
@@ -41,8 +55,6 @@ jobs:
           android.enableJetifier=false
           EOF
 
-          # THE FIX: settings.gradle.kts must declare plugin repos
-          # so Gradle knows where to find com.android.application
           cat > settings.gradle.kts << 'EOF'
           pluginManagement {
               repositories {
@@ -62,7 +74,6 @@ jobs:
           include(":app")
           EOF
 
-          # Root build.gradle.kts — declares plugin versions
           cat > build.gradle.kts << 'EOF'
           plugins {
               id("com.android.application") version "8.5.0" apply false
@@ -70,7 +81,6 @@ jobs:
           }
           EOF
 
-          # App build.gradle.kts
           cat > app/build.gradle.kts << 'EOF'
           plugins {
               id("com.android.application")
@@ -111,9 +121,10 @@ jobs:
           -keepclassmembers class com.gseterminal.app.WebAppInterface { public *; }
           EOF
 
-          # Kotlin sources
-          mkdir -p app/src/main/java/com/gseterminal/app
+          echo "✅ Gradle files written"
 
+      - name: Write Kotlin source files
+        run: |
           cat > app/src/main/java/com/gseterminal/app/GSEApplication.kt << 'EOF'
           package com.gseterminal.app
           import android.app.Application
@@ -163,9 +174,11 @@ jobs:
               @JavascriptInterface
               fun openUrl(url: String) {
                   try {
-                      context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)).apply {
-                          addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                      })
+                      context.startActivity(
+                          Intent(Intent.ACTION_VIEW, Uri.parse(url)).apply {
+                              addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                          }
+                      )
                   } catch (e: Exception) {}
               }
               @JavascriptInterface fun isAndroid(): Boolean = true
@@ -199,9 +212,9 @@ jobs:
                   binding = ActivityMainBinding.inflate(layoutInflater)
                   setContentView(binding.root)
                   with(binding.webView) {
-                      settings.javaScriptEnabled = true
-                      settings.domStorageEnabled  = true
-                      settings.useWideViewPort    = true
+                      settings.javaScriptEnabled    = true
+                      settings.domStorageEnabled    = true
+                      settings.useWideViewPort      = true
                       settings.loadWithOverviewMode = true
                       settings.setSupportZoom(false)
                       if (WebViewFeature.isFeatureSupported(WebViewFeature.SAFE_BROWSING_ENABLE))
@@ -227,12 +240,4 @@ jobs:
                           }
                       }
                       webChromeClient = object : WebChromeClient() {
-                          override fun onProgressChanged(v: WebView, p: Int) {
-                              binding.progressBar.progress = p
-                              if (p == 100) binding.progressBar.visibility = View.GONE
-                          }
-                      }
-                      if (isOnline()) loadUrl("file:///android_asset/index.html")
-                      else showOffline()
-                  }
-  
+            
