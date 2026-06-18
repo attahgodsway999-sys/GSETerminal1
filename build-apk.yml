@@ -26,27 +26,16 @@ jobs:
       - name: Create local.properties
         run: echo "sdk.dir=$ANDROID_SDK_ROOT" > local.properties
 
-      - name: Download Gradle wrapper jar
-        run: |
-          curl -sL \
-            "https://github.com/gradle/gradle/raw/v8.7.0/gradle/wrapper/gradle-wrapper.jar" \
-            -o gradle/wrapper/gradle-wrapper.jar
-          echo "Wrapper: $(ls -lh gradle/wrapper/gradle-wrapper.jar)"
+      - name: Install Gradle
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: '8.7'
 
       - name: Make gradlew executable
         run: chmod +x gradlew
 
-      - name: Gradle cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*','**/libs.versions.toml') }}
-          restore-keys: ${{ runner.os }}-gradle-
-
       - name: Build Debug APK
-        run: ./gradlew assembleDebug --no-daemon --stacktrace
+        run: gradle assembleDebug --no-daemon --stacktrace
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
@@ -57,7 +46,5 @@ jobs:
 
       - name: Done
         run: |
-          echo "========================================"
-          echo " ✅ GSE Terminal APK built successfully!"
-          echo "========================================"
-          ls -lh app/build/outputs/apk/debug/
+          echo "✅ Build complete!"
+          ls -lh app/build/outputs/apk/debug/ || echo "checking..."
