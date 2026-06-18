@@ -16,32 +16,223 @@ jobs:
 
       - uses: android-actions/setup-android@v3
 
-      - name: Install Gradle 8.7 directly
+      - name: Install Gradle 8.7
         run: |
           wget -q https://services.gradle.org/distributions/gradle-8.7-bin.zip -P /tmp
           unzip -q /tmp/gradle-8.7-bin.zip -d /opt
           echo "/opt/gradle-8.7/bin" >> $GITHUB_PATH
 
-      - name: Prepare project
+      - name: Write all project files
         run: |
           echo "sdk.dir=$ANDROID_SDK_ROOT" > local.properties
+
           mkdir -p gradle/wrapper
-          cat > gradle/wrapper/gradle-wrapper.properties << 'PROPS'
+          cat > gradle/wrapper/gradle-wrapper.properties << 'EOF'
           distributionBase=GRADLE_USER_HOME
           distributionPath=wrapper/dists
           distributionUrl=https\://services.gradle.org/distributions/gradle-8.7-bin.zip
           zipStoreBase=GRADLE_USER_HOME
           zipStorePath=wrapper/dists
-          PROPS
-          echo "=== Files in repo ==="
-          find . -not -path './.git/*' -not -path './app/src/main/assets/*' | sort
+          EOF
 
-      - name: Build APK
-        run: gradle assembleDebug --no-daemon --stacktrace
+          cat > gradle.properties << 'EOF'
+          org.gradle.jvmargs=-Xmx2048m
+          android.useAndroidX=true
+          android.enableJetifier=false
+          EOF
 
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: GSETerminal-APK
-          path: app/build/outputs/apk/debug/app-debug.apk
-          retention-days: 30
+          # THE FIX: settings.gradle.kts must declare plugin repos
+          # so Gradle knows where to find com.android.application
+          cat > settings.gradle.kts << 'EOF'
+          pluginManagement {
+              repositories {
+                  gradlePluginPortal()
+                  google()
+                  mavenCentral()
+              }
+          }
+          dependencyResolutionManagement {
+              repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+              repositories {
+                  google()
+                  mavenCentral()
+              }
+          }
+          rootProject.name = "GSETerminal"
+          include(":app")
+          EOF
+
+          # Root build.gradle.kts — declares plugin versions
+          cat > build.gradle.kts << 'EOF'
+          plugins {
+              id("com.android.application") version "8.5.0" apply false
+              id("org.jetbrains.kotlin.android") version "1.9.24" apply false
+          }
+          EOF
+
+          # App build.gradle.kts
+          cat > app/build.gradle.kts << 'EOF'
+          plugins {
+              id("com.android.application")
+              id("org.jetbrains.kotlin.android")
+          }
+          android {
+              namespace  = "com.gseterminal.app"
+              compileSdk = 34
+              defaultConfig {
+                  applicationId = "com.gseterminal.app"
+                  minSdk        = 24
+                  targetSdk     = 34
+                  versionCode   = 1
+                  versionName   = "1.0.0"
+              }
+              buildTypes {
+                  release { isMinifyEnabled = false }
+              }
+              compileOptions {
+                  sourceCompatibility = JavaVersion.VERSION_17
+                  targetCompatibility = JavaVersion.VERSION_17
+              }
+              kotlinOptions { jvmTarget = "17" }
+              buildFeatures { viewBinding = true }
+          }
+          dependencies {
+              implementation("androidx.core:core-ktx:1.13.1")
+              implementation("androidx.appcompat:appcompat:1.7.0")
+              implementation("com.google.android.material:material:1.12.0")
+              implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+              implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+              implementation("androidx.webkit:webkit:1.11.0")
+          }
+          EOF
+
+          cat > app/proguard-rules.pro << 'EOF'
+          -keepattributes JavascriptInterface
+          -keepclassmembers class com.gseterminal.app.WebAppInterface { public *; }
+          EOF
+
+          # Kotlin sources
+          mkdir -p app/src/main/java/com/gseterminal/app
+
+          cat > app/src/main/java/com/gseterminal/app/GSEApplication.kt << 'EOF'
+          package com.gseterminal.app
+          import android.app.Application
+          import android.webkit.WebView
+          class GSEApplication : Application() {
+              override fun onCreate() {
+                  super.onCreate()
+                  if (BuildConfig.DEBUG) WebView.setWebContentsDebuggingEnabled(true)
+              }
+          }
+          EOF
+
+          cat > app/src/main/java/com/gseterminal/app/SplashActivity.kt << 'EOF'
+          package com.gseterminal.app
+          import android.annotation.SuppressLint
+          import android.content.Intent
+          import android.os.Bundle
+          import android.os.Handler
+          import android.os.Looper
+          import androidx.appcompat.app.AppCompatActivity
+          @SuppressLint("CustomSplashScreen")
+          class SplashActivity : AppCompatActivity() {
+              override fun onCreate(savedInstanceState: Bundle?) {
+                  super.onCreate(savedInstanceState)
+                  setContentView(R.layout.activity_splash)
+                  Handler(Looper.getMainLooper()).postDelayed({
+                      startActivity(Intent(this, MainActivity::class.java))
+                  }, 1800L)
+              }
+          }
+          EOF
+
+          cat > app/src/main/java/com/gseterminal/app/WebAppInterface.kt << 'EOF'
+          package com.gseterminal.app
+          import android.content.Context
+          import android.content.Intent
+          import android.net.Uri
+          import android.webkit.JavascriptInterface
+          import android.widget.Toast
+          class WebAppInterface(private val context: Context) {
+              @JavascriptInterface
+              fun showToast(msg: String) {
+                  (context as? MainActivity)?.runOnUiThread {
+                      Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
+                  }
+              }
+              @JavascriptInterface
+              fun openUrl(url: String) {
+                  try {
+                      context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)).apply {
+                          addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                      })
+                  } catch (e: Exception) {}
+              }
+              @JavascriptInterface fun isAndroid(): Boolean = true
+              @JavascriptInterface fun getAppVersion(): String = BuildConfig.VERSION_NAME
+          }
+          EOF
+
+          cat > app/src/main/java/com/gseterminal/app/MainActivity.kt << 'EOF'
+          package com.gseterminal.app
+          import android.annotation.SuppressLint
+          import android.content.Context
+          import android.content.Intent
+          import android.graphics.Bitmap
+          import android.net.ConnectivityManager
+          import android.net.NetworkCapabilities
+          import android.net.Uri
+          import android.os.Bundle
+          import android.view.View
+          import android.webkit.*
+          import android.widget.Toast
+          import androidx.activity.OnBackPressedCallback
+          import androidx.appcompat.app.AppCompatActivity
+          import androidx.webkit.WebSettingsCompat
+          import androidx.webkit.WebViewFeature
+          import com.gseterminal.app.databinding.ActivityMainBinding
+          class MainActivity : AppCompatActivity() {
+              private lateinit var binding: ActivityMainBinding
+              @SuppressLint("SetJavaScriptEnabled")
+              override fun onCreate(savedInstanceState: Bundle?) {
+                  super.onCreate(savedInstanceState)
+                  binding = ActivityMainBinding.inflate(layoutInflater)
+                  setContentView(binding.root)
+                  with(binding.webView) {
+                      settings.javaScriptEnabled = true
+                      settings.domStorageEnabled  = true
+                      settings.useWideViewPort    = true
+                      settings.loadWithOverviewMode = true
+                      settings.setSupportZoom(false)
+                      if (WebViewFeature.isFeatureSupported(WebViewFeature.SAFE_BROWSING_ENABLE))
+                          WebSettingsCompat.setSafeBrowsingEnabled(settings, true)
+                      addJavascriptInterface(WebAppInterface(this@MainActivity), "AndroidBridge")
+                      webViewClient = object : WebViewClient() {
+                          override fun onPageStarted(v: WebView, url: String, f: Bitmap?) {
+                              binding.progressBar.visibility = View.VISIBLE
+                          }
+                          override fun onPageFinished(v: WebView, url: String) {
+                              binding.progressBar.visibility = View.GONE
+                          }
+                          override fun onReceivedError(v: WebView, req: WebResourceRequest, err: WebResourceError) {
+                              if (req.isForMainFrame) showOffline()
+                          }
+                          override fun shouldOverrideUrlLoading(v: WebView, req: WebResourceRequest): Boolean {
+                              val url = req.url.toString()
+                              return if (url.startsWith("file://") || url.startsWith("about:")) false
+                              else if (url.startsWith("http")) {
+                                  try { startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url))) } catch (e: Exception) {}
+                                  true
+                              } else true
+                          }
+                      }
+                      webChromeClient = object : WebChromeClient() {
+                          override fun onProgressChanged(v: WebView, p: Int) {
+                              binding.progressBar.progress = p
+                              if (p == 100) binding.progressBar.visibility = View.GONE
+                          }
+                      }
+                      if (isOnline()) loadUrl("file:///android_asset/index.html")
+                      else showOffline()
+                  }
+  
